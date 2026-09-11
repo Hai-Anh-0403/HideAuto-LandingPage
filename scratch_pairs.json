@@ -1,0 +1,1218 @@
+[
+  {
+    "vi": "Tính năng",
+    "en": "Features"
+  },
+  {
+    "vi": "So sánh",
+    "en": "Compare"
+  },
+  {
+    "vi": "Giá",
+    "en": "Pricing"
+  },
+  {
+    "vi": "Tải bản beta",
+    "en": "Get the beta"
+  },
+  {
+    "vi": "Hướng hero",
+    "en": "Hero direction"
+  },
+  {
+    "vi": "Beta · Windows · Chạy cục bộ, dữ liệu ở lại máy bạn",
+    "en": "Beta · Windows · Runs locally, data stays on your machine"
+  },
+  {
+    "vi": "Automation trình duyệtcó cửa kiểm trước khi chạy thật.",
+    "en": "Browser automationwith a gate"
+  },
+  {
+    "vi": "Kéo-thả node thành workflow, chạy song song trên hàng trăm profile anti-detect. Trước khi ship, Critic soát cả flow, chấm điểm và chặn build nếu còn lỗi — không phải phát hiện lúc 300 profile đã chạy sai.",
+    "en": "Drag nodes into a workflow, run it in parallel across hundreds of anti-detect profiles. Before you ship, Critic reviews the whole flow, scores it, and blocks the build while errors remain — not after 300 profiles already ran wrong."
+  },
+  {
+    "vi": "Tải bản beta — miễn phí",
+    "en": "Download the beta — free"
+  },
+  {
+    "vi": "Miễn phí trong beta · Không cần thẻ · Tự cập nhật qua launcher",
+    "en": "Free during beta · No card · Self-updating launcher"
+  },
+  {
+    "vi": "Một canvas.Hàng trămprofile.",
+    "en": "One canvas.Hundreds ofprofiles."
+  },
+  {
+    "vi": "Dựng flow trực quan, gắn profile riêng cho từng lượt chạy, đặt lịch. Critic soát trước, git giữ lịch sử, engine lo song song và khôi phục sau khi khởi động lại.",
+    "en": "Build the flow visually, bind a profile per run, set a schedule. Critic reviews first, git keeps the history, the engine handles parallelism and recovery after restart."
+  },
+  {
+    "vi": "Tải bản beta",
+    "en": "Download the beta"
+  },
+  {
+    "vi": "Xem tính năng",
+    "en": "See features"
+  },
+  {
+    "vi": "Bảng thông số",
+    "en": "Spec sheet"
+  },
+  {
+    "vi": "8 nhóm node trên canvas vô hạn",
+    "en": "8 node groups on an infinite canvas"
+  },
+  {
+    "vi": "3 nền tảng anti-detect + 2 engine tích hợp",
+    "en": "3 anti-detect platforms + 2 built-in engines"
+  },
+  {
+    "vi": "7 rule Critic · ngưỡng cửa 85/100",
+    "en": "7 Critic rules · gate threshold 85/100"
+  },
+  {
+    "vi": "Tối đa 10.000 bước mỗi lượt chạy",
+    "en": "Up to 10,000 steps per run"
+  },
+  {
+    "vi": "Git commit &amp; diff cho từng workflow",
+    "en": "Git commit &amp; diff per workflow"
+  },
+  {
+    "vi": "Đóng gói workflow thành .exe có sha256",
+    "en": "Package a workflow as a .exe with sha256"
+  },
+  {
+    "vi": "Critic gate · tĩnh, không gọi model",
+    "en": "Critic gate · static, no model calls"
+  },
+  {
+    "vi": "Flow chưa đạt 85 điểm thì không được ship.",
+    "en": "Below 85 points"
+  },
+  {
+    "vi": "Cùng một flow luôn cho ra cùng một kết quả — Critic đọc chính graph mà runner sẽ chạy. Một lỗi mức error là chặn, không cần biết điểm còn lại đẹp tới đâu.",
+    "en": "The same flow always scores the same — Critic reads the exact graph the runner will execute. One error-level finding blocks, no matter how clean the rest looks."
+  },
+  {
+    "vi": "Bị chặn",
+    "en": "Blocked"
+  },
+  {
+    "vi": "Tải bản beta",
+    "en": "Get the beta"
+  },
+  {
+    "vi": "Trình soạn flow",
+    "en": "Flow editor"
+  },
+  {
+    "vi": "Vấn đề &amp; cửa Critic",
+    "en": "Problems &amp; the gate"
+  },
+  {
+    "vi": "Tổng quan",
+    "en": "Overview"
+  },
+  {
+    "vi": "Lịch chạy",
+    "en": "Schedules"
+  },
+  {
+    "vi": "Lượt chạy tự phát · trỏ chuột vào để dừng",
+    "en": "Run plays itself · hover to pause"
+  },
+  {
+    "vi": "Tự động tạo content AI và đăng bài facebook",
+    "en": "AI content + facebook posting"
+  },
+  {
+    "vi": "Tự động tạo content AI …",
+    "en": "AI content + facebook post…"
+  },
+  {
+    "vi": "đăng ký hotmail",
+    "en": "register hotmail"
+  },
+  {
+    "vi": "Lưu",
+    "en": "Save"
+  },
+  {
+    "vi": "Chạy phản biện",
+    "en": "Run critic review"
+  },
+  {
+    "vi": "CỬA CRITIC",
+    "en": "CRITIC GATE"
+  },
+  {
+    "vi": "BỊ CHẶN",
+    "en": "BLOCKED"
+  },
+  {
+    "vi": "đang chạy",
+    "en": "running"
+  },
+  {
+    "vi": "đang chạy",
+    "en": "running"
+  },
+  {
+    "vi": "đang chạy",
+    "en": "running"
+  },
+  {
+    "vi": "Vấn đề",
+    "en": "Problems"
+  },
+  {
+    "vi": "Nhật ký",
+    "en": "Run log"
+  },
+  {
+    "vi": "Lịch",
+    "en": "Calendar"
+  },
+  {
+    "vi": "Nhóm theo",
+    "en": "Group by"
+  },
+  {
+    "vi": "Mức độ",
+    "en": "Severity"
+  },
+  {
+    "vi": "Mức độ",
+    "en": "Severity"
+  },
+  {
+    "vi": "Nội dung",
+    "en": "Message"
+  },
+  {
+    "vi": "Ở đâu",
+    "en": "Where"
+  },
+  {
+    "vi": "Cảnh báo 3",
+    "en": "Warn 3"
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Selector của \"Click Element\" bám theo vị trí (//div/div[1]/div/div[3]/div/div[1]…) nên sẽ trôi khi trang đổi bố cục.",
+    "en": "The selector on \"Click Element\" (//div/div[1]/div/div[3]/div/div[1]…) targets a position, so it breaks when the page is rearranged."
+  },
+  {
+    "vi": "Đổi sang id, hoặc một thuộc tính data-* ổn định của chính phần tử.",
+    "en": "Target an id, or a stable data-* attribute on the element itself."
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Selector của \"File Choose event\" bám theo vị trí (//div/div[1]/div/div[4]/div/div/div[2]…) nên sẽ trôi khi trang đổi bố cục.",
+    "en": "The selector on \"File Choose event\" (//div/div[1]/div/div[4]/div/div/div[2]…) targets a position, so it breaks when the page is rearranged."
+  },
+  {
+    "vi": "Đổi sang id, hoặc một thuộc tính data-* ổn định của chính phần tử.",
+    "en": "Target an id, or a stable data-* attribute on the element itself."
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Hai ô nghỉ của node bị đặt tay về 0 — mọi bước bắn liên tiếp không có nhịp người.",
+    "en": "\"Type text\" is pinned to a zero pause, giving up the default random 0–0.5s gap."
+  },
+  {
+    "vi": "Bỏ trống hai ô để về khoảng ngẫu nhiên mặc định 0–0.5s.",
+    "en": "Clear both delay fields to restore the default, or set a from–to range."
+  },
+  {
+    "vi": "GỢI Ý",
+    "en": "HINT"
+  },
+  {
+    "vi": "Cổng error để trống — nếu bước này hỏng thì mọi bước phía sau bị bỏ qua, kể cả bước ghi kết quả.",
+    "en": "\"Go to url\" leaves its error port unwired — if this step fails, the run stops here and every later step is skipped."
+  },
+  {
+    "vi": "Nối cổng error sang một node Stop để kết thúc rõ ràng.",
+    "en": "Wire the error port to a recovery branch, or to Stop so the run ends on purpose."
+  },
+  {
+    "vi": "GỢI Ý",
+    "en": "HINT"
+  },
+  {
+    "vi": "Ghi file nằm trong thân vòng lặp — mỗi vòng một lần mở và đóng file.",
+    "en": "\"Run JS\" sits inside a loop body, so it calls out once per iteration."
+  },
+  {
+    "vi": "Gom dữ liệu lại rồi ghi một lần sau khi vòng lặp kết thúc.",
+    "en": "Collect the rows into a variable inside the loop, then write once after it ends."
+  },
+  {
+    "vi": "Xem",
+    "en": "View"
+  },
+  {
+    "vi": "Khôi phục",
+    "en": "Restore"
+  },
+  {
+    "vi": "Dàn bài",
+    "en": "Outline"
+  },
+  {
+    "vi": "Biến",
+    "en": "Variables"
+  },
+  {
+    "vi": "Rule đang bật",
+    "en": "Rules in force"
+  },
+  {
+    "vi": "Trình soạn",
+    "en": "Editor"
+  },
+  {
+    "vi": "Vấn đề",
+    "en": "Problems"
+  },
+  {
+    "vi": "CỬA CRITIC",
+    "en": "CRITIC GATE"
+  },
+  {
+    "vi": "BỊ CHẶN",
+    "en": "BLOCKED"
+  },
+  {
+    "vi": "Chạy phản biện",
+    "en": "Run critic review"
+  },
+  {
+    "vi": "Mức độ",
+    "en": "Severity"
+  },
+  {
+    "vi": "Nội dung",
+    "en": "Message"
+  },
+  {
+    "vi": "Ở đâu",
+    "en": "Where"
+  },
+  {
+    "vi": "Cảnh báo 3",
+    "en": "Warn 3"
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Selector của \"Click Element\" bám theo vị trí (//div/div[1]/div/div[3]/div/div[1]…) nên sẽ trôi khi trang đổi bố cục.",
+    "en": "The selector on \"Click Element\" (//div/div[1]/div/div[3]/div/div[1]…) targets a position, so it breaks when the page is rearranged."
+  },
+  {
+    "vi": "Đổi sang id, hoặc một thuộc tính data-* ổn định của chính phần tử.",
+    "en": "Target an id, or a stable data-* attribute on the element itself."
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Selector của \"File Choose event\" bám theo vị trí (//div/div[1]/div/div[4]/div/div/div[2]…) nên sẽ trôi khi trang đổi bố cục.",
+    "en": "The selector on \"File Choose event\" (//div/div[1]/div/div[4]/div/div/div[2]…) targets a position, so it breaks when the page is rearranged."
+  },
+  {
+    "vi": "Đổi sang id, hoặc một thuộc tính data-* ổn định của chính phần tử.",
+    "en": "Target an id, or a stable data-* attribute on the element itself."
+  },
+  {
+    "vi": "CẢNH BÁO",
+    "en": "WARN"
+  },
+  {
+    "vi": "Hai ô nghỉ của node bị đặt tay về 0 — mọi bước bắn liên tiếp không có nhịp người.",
+    "en": "\"Type text\" is pinned to a zero pause, giving up the default random 0–0.5s gap."
+  },
+  {
+    "vi": "Bỏ trống hai ô để về khoảng ngẫu nhiên mặc định 0–0.5s.",
+    "en": "Clear both delay fields to restore the default, or set a from–to range."
+  },
+  {
+    "vi": "GỢI Ý",
+    "en": "HINT"
+  },
+  {
+    "vi": "Cổng error để trống — nếu bước này hỏng thì mọi bước phía sau bị bỏ qua, kể cả bước ghi kết quả.",
+    "en": "\"Go to url\" leaves its error port unwired — if this step fails, the run stops here and every later step is skipped."
+  },
+  {
+    "vi": "Nối cổng error sang một node Stop để kết thúc rõ ràng.",
+    "en": "Wire the error port to a recovery branch, or to Stop so the run ends on purpose."
+  },
+  {
+    "vi": "GỢI Ý",
+    "en": "HINT"
+  },
+  {
+    "vi": "Ghi file nằm trong thân vòng lặp — mỗi vòng một lần mở và đóng file.",
+    "en": "\"Run JS\" sits inside a loop body, so it calls out once per iteration."
+  },
+  {
+    "vi": "Gom dữ liệu lại rồi ghi một lần sau khi vòng lặp kết thúc.",
+    "en": "Collect the rows into a variable inside the loop, then write once after it ends."
+  },
+  {
+    "vi": "Trừ điểm: error 15 · warn 5 · hint 1 — chỉ finding còn mở mới trừ",
+    "en": "Penalty: error 15 · warn 5 · hint 1 — only open findings count"
+  },
+  {
+    "vi": "Build bị chặn",
+    "en": "Build blocked"
+  },
+  {
+    "vi": "Tổng quan",
+    "en": "Overview"
+  },
+  {
+    "vi": "Thứ Năm, 27 tháng 8 · 5 lần chạy hôm nay",
+    "en": "Thursday, 27 August · 5 runs today"
+  },
+  {
+    "vi": "Mở một flow",
+    "en": "Open a flow"
+  },
+  {
+    "vi": "Mở worklog",
+    "en": "Open worklog"
+  },
+  {
+    "vi": "CHẠY HÔM NAY",
+    "en": "RUNS TODAY"
+  },
+  {
+    "vi": "0 đang chạy",
+    "en": "running"
+  },
+  {
+    "vi": "PROFILE THÀNH CÔNG · 7 N",
+    "en": "PROFILE SUCCESS · 7 D"
+  },
+  {
+    "vi": "PROFILE ĐANG MỞ",
+    "en": "PROFILES OPEN"
+  },
+  {
+    "vi": "trên 47",
+    "en": "of 47"
+  },
+  {
+    "vi": "CẦN XỬ LÝ",
+    "en": "NEEDS TRIAGE"
+  },
+  {
+    "vi": "7 ngày qua",
+    "en": "last 7 days"
+  },
+  {
+    "vi": "VÒNG PHẢN BIỆN",
+    "en": "CRITIC ROUNDS"
+  },
+  {
+    "vi": "5 đạt",
+    "en": "5 passed"
+  },
+  {
+    "vi": "MINI APP ĐÃ DỰNG",
+    "en": "MINI APPS BUILT"
+  },
+  {
+    "vi": "chưa có",
+    "en": "none yet"
+  },
+  {
+    "vi": "Đang chạy",
+    "en": "Running now"
+  },
+  {
+    "vi": "0 batch · 0 profile đang mở",
+    "en": "0 batch · 0 profiles open"
+  },
+  {
+    "vi": "Không có gì đang chạy",
+    "en": "running"
+  },
+  {
+    "vi": "Dự án 8",
+    "en": "Projects 8"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "lướt youtube",
+    "en": "browse youtube"
+  },
+  {
+    "vi": "node",
+    "en": "nodes"
+  },
+  {
+    "vi": "chạy tay",
+    "en": "on demand"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  },
+  {
+    "vi": "Cần bàn",
+    "en": "Needs you"
+  },
+  {
+    "vi": "Xử lý",
+    "en": "Triage"
+  },
+  {
+    "vi": "Could not open built-in profile: Profile \"…\\\\profiles\\\\default-profile\" đang được workflow switch extension popup (run f8f9094c-23d5) sử dụng. ProfileBusyError",
+    "en": "Could not open built-in profile: Profile \"…\\\\profiles\\\\default-profile\" is in use by workflow switch extension popup (run f8f9094c-23d5). ProfileBusyError"
+  },
+  {
+    "vi": "Xử lý",
+    "en": "Triage"
+  },
+  {
+    "vi": "Could not open built-in profile: Profile \"…\\\\profiles\\\\default-profile\" đang được workflow switch extension popup sử dụng. 1 trên 1 profile",
+    "en": "Could not open built-in profile: Profile \"…\\\\profiles\\\\default-profile\" is in use by workflow switch extension popup. 1 of 1 profile"
+  },
+  {
+    "vi": "Tự động hoá",
+    "en": "Automation"
+  },
+  {
+    "vi": "Lịch",
+    "en": "Calendar"
+  },
+  {
+    "vi": "2 đang bật · 2 tạm dừng",
+    "en": "2 enabled · 2 paused"
+  },
+  {
+    "vi": "Danh sách",
+    "en": "List"
+  },
+  {
+    "vi": "Lịch",
+    "en": "Calendar"
+  },
+  {
+    "vi": "Tạo schedule",
+    "en": "New schedule"
+  },
+  {
+    "vi": "24 giờ tới",
+    "en": "Next 24 h"
+  },
+  {
+    "vi": "6 lượt chờ · 21 suất profile",
+    "en": "6 runs queued · 21 profile-slots"
+  },
+  {
+    "vi": "Lịch",
+    "en": "Schedule"
+  },
+  {
+    "vi": "Khi nào",
+    "en": "When"
+  },
+  {
+    "vi": "Mục tiêu",
+    "en": "Target"
+  },
+  {
+    "vi": "Kế tiếp",
+    "en": "Next"
+  },
+  {
+    "vi": "7 lượt gần",
+    "en": "Last 7"
+  },
+  {
+    "vi": "Bật",
+    "en": "State"
+  },
+  {
+    "vi": "Thao tác",
+    "en": "Actions"
+  },
+  {
+    "vi": "Chạy luôn",
+    "en": "Run immediately"
+  },
+  {
+    "vi": "Tạm dừng",
+    "en": "Paused"
+  },
+  {
+    "vi": "Chạy ngay",
+    "en": "Run now"
+  },
+  {
+    "vi": "Sửa",
+    "en": "Edit"
+  },
+  {
+    "vi": "mỗi 2 giờ",
+    "en": "Every 2 h"
+  },
+  {
+    "vi": "14:00 hôm nay",
+    "en": "14:00 today"
+  },
+  {
+    "vi": "Chạy ngay",
+    "en": "Run now"
+  },
+  {
+    "vi": "Sửa",
+    "en": "Edit"
+  },
+  {
+    "vi": "hằng ngày 08:00",
+    "en": "Every day at 08:00"
+  },
+  {
+    "vi": "08:00 mai",
+    "en": "08:00 tomorrow"
+  },
+  {
+    "vi": "Chạy ngay",
+    "en": "Run now"
+  },
+  {
+    "vi": "Sửa",
+    "en": "Edit"
+  },
+  {
+    "vi": "Nhập liệu CRM",
+    "en": "CRM data entry"
+  },
+  {
+    "vi": "thứ 2 06:00",
+    "en": "Mon at 06:00"
+  },
+  {
+    "vi": "thứ 2 06:00",
+    "en": "Mon at 06:00"
+  },
+  {
+    "vi": "Chạy ngay",
+    "en": "Run now"
+  },
+  {
+    "vi": "Sửa",
+    "en": "Edit"
+  },
+  {
+    "vi": "Điều khiển được",
+    "en": "Drives"
+  },
+  {
+    "vi": "Vòng lặp vận hành",
+    "en": "The operating loop"
+  },
+  {
+    "vi": "Dựng · soát · chạy hàng loạt · commit.",
+    "en": "Build · review · run at scale · commit."
+  },
+  {
+    "vi": "Bốn việc bạn làm mỗi ngày, trong một app chạy cục bộ. Không tab trình duyệt, không script rời, không chỗ nào dữ liệu rời khỏi máy.",
+    "en": "The four things you do every day, in one app that runs locally. No browser tabs, no loose scripts, no point where data leaves your machine."
+  },
+  {
+    "vi": "Canvas &amp; node",
+    "en": "Canvas &amp; nodes"
+  },
+  {
+    "vi": "Profile, lịch &amp; quy mô",
+    "en": "Profiles, schedule &amp; scale"
+  },
+  {
+    "vi": "Lịch sử &amp; git",
+    "en": "History &amp; git"
+  },
+  {
+    "vi": "Dữ liệu, file &amp; đóng gói",
+    "en": "Data, files &amp; packaging"
+  },
+  {
+    "vi": "Tám nhóm node, một canvas vô hạn",
+    "en": "Eight node groups, one infinite canvas"
+  },
+  {
+    "vi": "Kéo node từ palette, nối bằng hai cổng ra — success và error. Rẽ nhánh với IF / IF-ELSE / Element exists, lặp với Loop, dừng với Stop. Biến dùng chung xuyên suốt bằng cú pháp hai ngoặc nhọn.",
+    "en": "Drag a node from the palette and wire it through two output ports — success and error. Branch with IF / IF-ELSE / Element exists, repeat with Loop, halt with Stop. Variables travel through everything in double-brace syntax."
+  },
+  {
+    "vi": "Selector theo id / css / xpath, xuyên shadow DOM và iframe",
+    "en": "Selectors by id / css / xpath, through shadow DOM and iframes"
+  },
+  {
+    "vi": "Chuột human-like và find-by-image cho chỗ selector không tới được",
+    "en": "Human-like mouse paths and find-by-image where selectors cannot reach"
+  },
+  {
+    "vi": "Undo/redo, copy cụm node, canh hàng, dàn bài theo thứ tự chạy",
+    "en": "Undo/redo, copy node clusters, alignment, an outline in run order"
+  },
+  {
+    "vi": "Cần code? Node Run JS, HTTP request và Run command nằm ngay trong flow",
+    "en": "Need code? Run JS, HTTP request and Run command nodes sit right in the flow"
+  },
+  {
+    "vi": "Bảng node · 8 nhóm",
+    "en": "Node palette · 8 groups"
+  },
+  {
+    "vi": "Điều khiển",
+    "en": "Control"
+  },
+  {
+    "vi": "Critic đọc flow trước khi flow chạm production",
+    "en": "Critic reads the flow before the flow touches production"
+  },
+  {
+    "vi": "Bảy rule tĩnh chạy trên chính graph mà runner sẽ thực thi — không gọi model, nên cùng một flow luôn cho cùng một kết quả. Finding gắn thẳng lên node và lên bảng Problems ở dock đáy.",
+    "en": "Seven static rules run on the exact graph the runner will execute — no model calls, so the same flow always scores the same. Findings pin onto the node and into the Problems table in the bottom dock."
+  },
+  {
+    "vi": "Điểm 0–100, ngưỡng mặc định 85, chỉnh được",
+    "en": "Score 0–100, threshold 85 by default, adjustable"
+  },
+  {
+    "vi": "Một finding mức error là chặn, bất kể điểm còn lại",
+    "en": "A single error-level finding blocks, whatever the score"
+  },
+  {
+    "vi": "Hai rule có nút Apply sửa tự động; còn lại cần bạn quyết",
+    "en": "Two rules carry an Apply auto-fix; the rest need your judgement"
+  },
+  {
+    "vi": "Miễn trừ phải kèm lý do và được ghi lại — người quyết, không phải agent",
+    "en": "A waiver needs a reason and is recorded — a human decides, not an agent"
+  },
+  {
+    "vi": "Nhóm",
+    "en": "Group"
+  },
+  {
+    "vi": "Mức",
+    "en": "Severity"
+  },
+  {
+    "vi": "Node lạ / thiếu handler",
+    "en": "Unknown node or missing handler"
+  },
+  {
+    "vi": "Runner từ chối chạy",
+    "en": "The runner refuses to run"
+  },
+  {
+    "vi": "Không bao giờ chạy tới",
+    "en": "Never reached"
+  },
+  {
+    "vi": "Cần người chọn thuộc tính ổn định",
+    "en": "A human picks the stable attribute"
+  },
+  {
+    "vi": "Apply — nối sang Stop mới",
+    "en": "Apply — wires to a new Stop"
+  },
+  {
+    "vi": "Apply — trả về nhịp mặc định",
+    "en": "Apply — back to the default cadence"
+  },
+  {
+    "vi": "Ghi thừa mỗi vòng lặp",
+    "en": "Redundant write each iteration"
+  },
+  {
+    "vi": "Hàng trăm profile, chạy theo lịch",
+    "en": "Hundreds of profiles, running on schedule"
+  },
+  {
+    "vi": "Mỗi profile là một danh tính trình duyệt độc lập: fingerprint riêng (UA, WebGL, canvas, font, media device), proxy riêng, bộ nhớ riêng. Chọn profile, đặt maxConcurrency, để engine lo phần còn lại.",
+    "en": "Every profile is an isolated browser identity: its own fingerprint (UA, WebGL, canvas, fonts, media devices), its own proxy, its own storage. Pick the profiles, set maxConcurrency, let the engine handle the rest."
+  },
+  {
+    "vi": "Màn Profiles: lọc, tìm, phân trang, mở/đóng hàng loạt",
+    "en": "A Profiles screen: filter, search, paginate, bulk open/close"
+  },
+  {
+    "vi": "Lịch cron, batch có tiến độ, worklog từng profile",
+    "en": "Cron schedules, batches with progress, a worklog per profile"
+  },
+  {
+    "vi": "Kiểm proxy trước khi chạy — IP, quốc gia, độ trễ",
+    "en": "Proxy check before the run — IP, country, latency"
+  },
+  {
+    "vi": "Mất điện, đóng app: lịch được khôi phục khi mở lại",
+    "en": "Power cut, app closed: schedules recover on next launch"
+  },
+  {
+    "vi": "Fingerprint mỗi profile",
+    "en": "Per-profile fingerprint"
+  },
+  {
+    "vi": "font từ dataset",
+    "en": "fonts from dataset"
+  },
+  {
+    "vi": "Chuột",
+    "en": "Mouse"
+  },
+  {
+    "vi": "Nghỉ giữa bước",
+    "en": "Dwell"
+  },
+  {
+    "vi": "ngẫu nhiên",
+    "en": "random"
+  },
+  {
+    "vi": "Workflow có lịch sử, không chỉ có bản mới nhất",
+    "en": "Workflows have a history, not just a latest version"
+  },
+  {
+    "vi": "Mỗi workflow là một file trên đĩa, commit bằng git thật. Xem diff dưới dạng graph (node nào thêm, sửa, xoá) hoặc dạng text. Cấu hình origin thì backup và pull được, có màn giải quyết xung đột.",
+    "en": "Every workflow is a file on disk, committed with real git. Read the diff as a graph — which nodes were added, changed, removed — or as text. Configure an origin and you get backup, pull, and a conflict-resolution screen."
+  },
+  {
+    "vi": "Badge số workflow chưa commit ngay trên thanh điều hướng",
+    "en": "A badge on the nav rail counts uncommitted workflows"
+  },
+  {
+    "vi": "Tab Lịch sử ở dock đáy — xem commit ngay trong lúc sửa",
+    "en": "A History tab in the bottom dock — read commits while you edit"
+  },
+  {
+    "vi": "Ai đó sửa file ngoài app: hộp thoại hỏi trước khi ghi đè",
+    "en": "Someone edits the file outside the app: a dialog asks before overwriting"
+  },
+  {
+    "vi": "Undo/redo trong phiên là một chuyện; commit là chuyện khác",
+    "en": "In-session undo/redo is one thing; a commit is another"
+  },
+  {
+    "vi": "xung đột: 0",
+    "en": "conflicts: 0"
+  },
+  {
+    "vi": "Dữ liệu vào, dữ liệu ra, rồi thành app riêng",
+    "en": "Data in, data out, then its own app"
+  },
+  {
+    "vi": "Đọc/ghi Excel và Google Sheets, đọc file, ghi txt/csv/json, gửi và đọc mail, lấy mã 2FA, gọi HTTP API giữa flow. Xong rồi đóng gói cả workflow thành một .exe độc lập, đổi icon, mã hoá, có sha256 để đối chiếu.",
+    "en": "Read and write Excel and Google Sheets, read files, write txt/csv/json, send and read mail, pull 2FA codes, call any HTTP API mid-flow. Then package the whole workflow into a standalone .exe — custom icon, encrypted, with a sha256 to verify."
+  },
+  {
+    "vi": "Biến toàn cục có màn riêng — sửa một chỗ, mọi flow theo",
+    "en": "Global variables get their own screen — edit once, every flow follows"
+  },
+  {
+    "vi": "Log JSONL từng bước, tail được ngay trong lúc chạy",
+    "en": "Per-step JSONL logs, tailed live while the run happens"
+  },
+  {
+    "vi": "Cửa Critic là một bước trong pipeline build — chặn được",
+    "en": "The Critic gate is a pipeline step in the build — it can block"
+  },
+  {
+    "vi": "Launcher tự cập nhật, không phải tải lại tay từng bản",
+    "en": "A self-updating launcher — no manual re-download each build"
+  },
+  {
+    "vi": "Đọc graph &amp; biến",
+    "en": "Read graph &amp; variables"
+  },
+  {
+    "vi": "Mã hoá bundle &amp; gắn licence",
+    "en": "Encrypt bundle &amp; bind licence"
+  },
+  {
+    "vi": "Ghép stub &amp; đổi icon",
+    "en": "Assemble stub &amp; set icon"
+  },
+  {
+    "vi": "Vì sao cần cửa kiểm",
+    "en": "Why a gate"
+  },
+  {
+    "vi": "Lỗi automation không hiện lúc bạn test.Nó hiện ở profile thứ 217.",
+    "en": "Automation bugs do not show up in your test run.They show up on profile 217."
+  },
+  {
+    "vi": "Một selector bám vị trí, một cổng error để trống, một ô delay bị đặt về 0 — chạy thử một lượt thì không thấy gì. Chạy 300 profile theo lịch lúc 2 giờ sáng thì thấy hết, và lúc đó dữ liệu đã sai rồi.",
+    "en": "A positional selector, an empty error port, a delay hand-set to zero — a single test run shows none of it. Three hundred scheduled profiles at 2am show all of it, and by then the data is already wrong."
+  },
+  {
+    "vi": "Chạy được một lần không có nghĩa là chạy được lần thứ hai.",
+    "en": "Running once does not mean running twice."
+  },
+  {
+    "vi": "Dấu vết máy móc: nhịp truy cập, thứ tự, thời gian dừng.",
+    "en": "Machine traces: cadence, ordering, dwell time."
+  },
+  {
+    "vi": "Mất dữ liệu, hoặc báo thành công khi thật ra đã hỏng.",
+    "en": "Losing data, or reporting success when it actually broke."
+  },
+  {
+    "vi": "Tiền và thời gian: gọi thừa, ghi thừa, chạy thừa.",
+    "en": "Money and time: redundant calls, writes, runs."
+  },
+  {
+    "vi": "Cách tính điểm",
+    "en": "How the score works"
+  },
+  {
+    "vi": "Điểm nói flow đang ở đâu. Chặn ship là do đếm lỗi error, không do điểm — nên một lỗi thật không lọt chỉ vì phần còn lại quá sạch.",
+    "en": "The score says where the flow stands. Shipping is blocked by the count of errors, not by the score — so a real bug never slips through because the rest is too clean."
+  },
+  {
+    "vi": "Số liệu sản phẩm",
+    "en": "Product figures"
+  },
+  {
+    "vi": "chỗ trống — chờ số thật",
+    "en": "placeholder — awaiting real figures"
+  },
+  {
+    "vi": "node có handler thật",
+    "en": "nodes with a real handler"
+  },
+  {
+    "vi": "bước tối đa mỗi lượt chạy",
+    "en": "step ceiling per run"
+  },
+  {
+    "vi": "rule Critic, 4 nhóm",
+    "en": "Critic rules, 4 groups"
+  },
+  {
+    "vi": "byte workflow gửi lên server",
+    "en": "bytes of workflow sent to a server"
+  },
+  {
+    "vi": "So sánh",
+    "en": "Compare"
+  },
+  {
+    "vi": "Script tự viết chạy được. Đến tháng thứ hai thì không.",
+    "en": "A hand-written script works. By month two it does not."
+  },
+  {
+    "vi": "Không phải vì code tệ, mà vì không ai soát nó, không ai biết ai sửa gì, và không có chỗ nào cho biết lượt chạy thứ 217 đã dừng ở đâu.",
+    "en": "Not because the code is bad, but because nobody reviews it, nobody knows who changed what, and nothing tells you where run 217 stopped."
+  },
+  {
+    "vi": "Script tự viết",
+    "en": "Hand-written script"
+  },
+  {
+    "vi": "Công cụ automation phổ thông",
+    "en": "Generic automation tool"
+  },
+  {
+    "vi": "Dựng trực quan, không cần code",
+    "en": "Visual building, no code required"
+  },
+  {
+    "vi": "Profile anti-detect có fingerprint riêng",
+    "en": "Anti-detect profiles with their own fingerprint"
+  },
+  {
+    "vi": "tự lo",
+    "en": "roll your own"
+  },
+  {
+    "vi": "Cửa kiểm chặn build khi flow còn lỗi",
+    "en": "A gate that blocks the build while the flow has errors"
+  },
+  {
+    "vi": "Git commit &amp; diff dạng graph cho từng flow",
+    "en": "Git commit &amp; graph diff per flow"
+  },
+  {
+    "vi": "git, nhưng diff là text",
+    "en": "git, but the diff is text"
+  },
+  {
+    "vi": "Lịch chạy + batch nhiều profile song song",
+    "en": "Schedules + batches across profiles in parallel"
+  },
+  {
+    "vi": "tự viết",
+    "en": "DIY"
+  },
+  {
+    "vi": "một phần",
+    "en": "partial"
+  },
+  {
+    "vi": "Log từng bước, chỉ ra chính xác chỗ dừng",
+    "en": "Per-step logs that pinpoint where it stopped"
+  },
+  {
+    "vi": "một phần",
+    "en": "partial"
+  },
+  {
+    "vi": "Đóng gói flow thành .exe có sha256",
+    "en": "Package a flow as a .exe with sha256"
+  },
+  {
+    "vi": "Chạy cục bộ — dữ liệu không rời khỏi máy",
+    "en": "Runs locally — data never leaves the machine"
+  },
+  {
+    "vi": "thường là cloud",
+    "en": "usually cloud"
+  },
+  {
+    "vi": "Giá",
+    "en": "Pricing"
+  },
+  {
+    "vi": "Miễn phí trong suốt beta.",
+    "en": "Free for the whole beta."
+  },
+  {
+    "vi": "Không giới hạn workflow, không giới hạn profile, không cần thẻ. Khi có bảng giá chính thức, người dùng beta được báo trước — và những gì bạn đã dựng vẫn là file trên máy bạn.",
+    "en": "No workflow cap, no profile cap, no card. When real pricing lands, beta users hear it first — and everything you built is still a file on your own machine."
+  },
+  {
+    "vi": "Bản beta hiện tại tập trung vào: workflow · Critic · lịch chạy · profile · version control.AI agent dựng workflow và command palette đang tắt trong bản này.",
+    "en": "This beta focuses on: workflows · Critic · schedules · profiles · version control.The AI workflow agent and command palette are switched off in this build."
+  },
+  {
+    "vi": "/ tháng, trong giai đoạn beta",
+    "en": "/ month, during the beta"
+  },
+  {
+    "vi": "Không giới hạn workflow &amp; profile",
+    "en": "Unlimited workflows &amp; profiles"
+  },
+  {
+    "vi": "Critic, gate và bảng Problems",
+    "en": "Critic, the gate and the Problems table"
+  },
+  {
+    "vi": "Lịch chạy &amp; batch song song",
+    "en": "Schedules &amp; parallel batches"
+  },
+  {
+    "vi": "Version control &amp; graph diff",
+    "en": "Version control &amp; graph diff"
+  },
+  {
+    "vi": "Đóng gói workflow thành .exe",
+    "en": "Package workflows as .exe"
+  },
+  {
+    "vi": "Tải bản beta",
+    "en": "Download the beta"
+  },
+  {
+    "vi": "Câu hỏi thường gặp",
+    "en": "Frequently asked"
+  },
+  {
+    "vi": "Còn thắc mắc gì khác, hỏi trực tiếp — bản beta thay đổi nhanh.",
+    "en": "Anything else, just ask — the beta moves fast."
+  },
+  {
+    "vi": "Tôi có cần biết code không?",
+    "en": "Do I need to know how to code?"
+  },
+  {
+    "vi": "Không. Mọi thứ dựng bằng cách kéo-thả và nối node. Khi cần đi xa hơn, có node Run JS, HTTP request và Run command để chèn logic riêng — nhưng đó là lựa chọn, không phải điều kiện.",
+    "en": "No. Everything is built by dragging and connecting nodes. When you need to go further there are Run JS, HTTP request and Run command nodes for your own logic — but that is an option, not a requirement."
+  },
+  {
+    "vi": "Critic có gọi AI không? Có tốn tiền token?",
+    "en": "Does Critic call an AI? Does it cost tokens?"
+  },
+  {
+    "vi": "Không. Critic v1 là bộ lint tĩnh chạy trên graph, ngay trên máy bạn — không gọi model nào, không tốn token, không gửi flow đi đâu. Vì thế cùng một flow luôn cho cùng một điểm.",
+    "en": "No. Critic v1 is a static lint over the graph, running on your machine — no model calls, no tokens, nothing sent anywhere. That is why the same flow always gets the same score."
+  },
+  {
+    "vi": "Cửa kiểm có chặn tôi lại khi tôi biết rõ mình đang làm gì?",
+    "en": "Will the gate block me when I know what I am doing?"
+  },
+  {
+    "vi": "Miễn trừ được, nhưng phải kèm lý do và được ghi lại. Tắt hẳn một rule cho flow đó cũng được. Điểm chung: người quyết định miễn trừ, không phải agent nào.",
+    "en": "You can waive a finding, but it needs a reason and gets recorded. You can also mute a rule for that flow entirely. The common thread: a human grants the waiver, not an agent."
+  },
+  {
+    "vi": "Điều khiển được trình duyệt nào?",
+    "en": "Which browsers can it drive?"
+  },
+  {
+    "vi": "Hidemium, GPM-Login và AdsPower qua provider riêng, hoặc Chromium và Firefox tích hợp sẵn trong app. Trình duyệt anti-detect khác thì kết nối qua CDP.",
+    "en": "Hidemium, GPM-Login and AdsPower through dedicated providers, or the Chromium and Firefox that ship inside the app. Other anti-detect browsers connect over CDP."
+  },
+  {
+    "vi": "Workflow của tôi lưu ở đâu?",
+    "en": "Where do my workflows live?"
+  },
+  {
+    "vi": "Trên máy bạn: nội dung flow là file trên đĩa, danh sách và lịch nằm trong SQLite mã hoá cùng máy. Muốn có bản sao ngoài thì tự cấu hình origin git — không có bước nào bắt buộc gửi lên server.",
+    "en": "On your machine: flow content is a file on disk, the list and schedules sit in an encrypted local SQLite. Want an off-machine copy? Configure a git origin yourself — no step ever requires sending anything to a server."
+  },
+  {
+    "vi": "Chạy được trên nền tảng nào?",
+    "en": "Which platforms are supported?"
+  },
+  {
+    "vi": "Bản beta chạy trên Windows, cài qua launcher tự cập nhật nên không phải tải tay từng bản mới. Giao diện song ngữ Việt / Anh, đổi ngay trong app.",
+    "en": "The beta runs on Windows, installed through a self-updating launcher so you never re-download a build by hand. The interface is bilingual Vietnamese / English, switchable in-app."
+  },
+  {
+    "vi": "Dựng flow đầu tiên, để Critic soát, rồi chạy 300 profile.",
+    "en": "Build your first flow, let Critic review it, then run 300 profiles."
+  },
+  {
+    "vi": "Miễn phí trong beta. Chạy cục bộ trên Windows. Không cần thẻ, không cần tài khoản cloud.",
+    "en": "Free during the beta. Runs locally on Windows. No card, no cloud account."
+  },
+  {
+    "vi": "Tải HideAuto cho Windows",
+    "en": "Download HideAuto for Windows"
+  },
+  {
+    "vi": "Xem lại tính năng",
+    "en": "Review the features"
+  },
+  {
+    "vi": "Launcher tự cập nhật · Song ngữ VI / EN · Dữ liệu ở lại máy bạn",
+    "en": "Self-updating launcher · Bilingual VI / EN · Your data stays local"
+  },
+  {
+    "vi": "Automation trình duyệt trực quan, chạy cục bộ, có cửa kiểm trước khi ship.",
+    "en": "Visual browser automation that runs locally, with a gate before you ship."
+  },
+  {
+    "vi": "Sản phẩm",
+    "en": "Product"
+  },
+  {
+    "vi": "Tính năng",
+    "en": "Features"
+  },
+  {
+    "vi": "Giá",
+    "en": "Pricing"
+  },
+  {
+    "vi": "Tài nguyên",
+    "en": "Resources"
+  },
+  {
+    "vi": "So sánh",
+    "en": "Compare"
+  },
+  {
+    "vi": "Tải về",
+    "en": "Download"
+  },
+  {
+    "vi": "Bản beta · nội dung dựng từ source hiện tại",
+    "en": "Beta · copy derived from the current source"
+  },
+  {
+    "vi": "CỬA CRITIC",
+    "en": "CRITIC GATE"
+  },
+  {
+    "vi": "BỊ CHẶN",
+    "en": "BLOCKED"
+  },
+  {
+    "vi": "CHƯA PHẢN BIỆN",
+    "en": "NOT REVIEWED YET"
+  }
+]

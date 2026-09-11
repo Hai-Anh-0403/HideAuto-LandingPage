@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[next]/internal/font/google/barlow_840d83e6.module.css"],"sourcesContent":["@font-face {\n    font-family: 'Barlow Fallback';\n    src: local(\"Arial\");\n    ascent-override: 103.43%;\ndescent-override: 20.69%;\nline-gap-override: 0.00%;\nsize-adjust: 96.68%;\n\n}\n.className {\n    font-family: 'Barlow', 'Barlow Fallback';\n    font-style: normal;\n\n}\n.variable {\n    --font-barlow: 'Barlow', 'Barlow Fallback';\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA;;;;;AAKA","ignoreList":[0]}}]
+}

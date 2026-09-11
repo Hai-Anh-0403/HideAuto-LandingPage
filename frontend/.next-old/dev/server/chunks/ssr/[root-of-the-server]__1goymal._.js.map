@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///D:/Work/Hide-Auto/HideAuto-Landingpage/frontend/src/app/page.tsx"],"sourcesContent":["export default function HomePage() {\n  return <main>HideAuto frontend environment is ready.</main>;\n}\n"],"names":["HomePage"],"mappings":";;;;;;AAAe,SAASA;IACtB,qBAAO,8OAAC;kBAAK;;;;;;AACf"}}]
+}

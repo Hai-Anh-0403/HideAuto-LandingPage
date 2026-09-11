@@ -1,0 +1,20 @@
+/* [next]/internal/font/google/barlow_condensed_bfb72aec.module.css [app-client] (css) */
+@font-face {
+  font-family: Barlow Condensed Fallback;
+  src: local(Arial);
+  ascent-override: 130.73%;
+  descent-override: 26.15%;
+  line-gap-override: 0.0%;
+  size-adjust: 76.49%;
+}
+
+.barlow_condensed_bfb72aec-module__Wq_B2a__className {
+  font-family: Barlow Condensed, Barlow Condensed Fallback;
+  font-style: normal;
+}
+
+.barlow_condensed_bfb72aec-module__Wq_B2a__variable {
+  --font-barlow-condensed: "Barlow Condensed", "Barlow Condensed Fallback";
+}
+
+/*# sourceMappingURL=%5Bnext%5D_internal_font_google_barlow_condensed_bfb72aec_module_css_1igg3k2._.single.css.map*/

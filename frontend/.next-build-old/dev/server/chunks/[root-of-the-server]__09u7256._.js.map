@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 106, "column": 0}, "map": {"version":3,"sources":["file:///D:/Work/Hide-Auto/HideAuto-Landingpage/frontend/src/proxy.ts"],"sourcesContent":["import type { NextRequest } from \"next/server\";\nimport { NextResponse } from \"next/server\";\n\nexport function proxy(request: NextRequest) {\n  return NextResponse.redirect(new URL(\"/vi\", request.url));\n}\n\nexport const config = {\n  matcher: \"/\",\n};\n"],"names":["proxy","request","redirect","URL","url","config","matcher"],"mappings":";;;;;;AACA;;AAEO,SAASA,MAAMC,OAAoB;IACxC,OAAO,8IAAY,CAACC,QAAQ,CAAC,IAAIC,IAAI,OAAOF,QAAQG,GAAG;AACzD;AAEO,MAAMC,SAAS;IACpBC,SAAS;AACX"}}]
+}

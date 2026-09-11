@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[next]/internal/font/google/barlow_condensed_bfb72aec.module.css"],"sourcesContent":["@font-face {\n    font-family: 'Barlow Condensed Fallback';\n    src: local(\"Arial\");\n    ascent-override: 130.73%;\ndescent-override: 26.15%;\nline-gap-override: 0.00%;\nsize-adjust: 76.49%;\n\n}\n.className {\n    font-family: 'Barlow Condensed', 'Barlow Condensed Fallback';\n    font-style: normal;\n\n}\n.variable {\n    --font-barlow-condensed: 'Barlow Condensed', 'Barlow Condensed Fallback';\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA;;;;;AAKA","ignoreList":[0]}}]
+}

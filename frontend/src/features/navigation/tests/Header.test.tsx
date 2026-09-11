@@ -19,23 +19,23 @@ describe("Header", () => {
     const header = screen.getByRole("banner");
     const headerContent = header.firstElementChild;
 
-    expect(headerContent).toHaveClass("h-16", "px-4", "lg:px-6");
+    expect(headerContent).toHaveClass("h-14", "px-4", "lg:px-6");
     expect(headerContent).not.toHaveClass("mx-auto", "max-w-[1200px]");
     expect(screen.getByText("HideAuto")).toHaveClass(
-      "text-[22px]",
+      "text-[19px]",
       "font-semibold",
       "tracking-[0.01em]",
     );
-    expect(screen.getByRole("link", { name: "VI" })).toHaveClass("text-[12.5px]", "font-semibold");
-    expect(screen.getByRole("link", { name: "EN" })).toHaveClass("text-[12.5px]", "font-semibold");
+    expect(screen.getByRole("link", { name: "VI" })).toHaveClass("text-[11px]", "font-semibold");
+    expect(screen.getByRole("link", { name: "EN" })).toHaveClass("text-[11px]", "font-semibold");
     expect(screen.getByRole("navigation", { name: "Primary navigation" })).toHaveClass(
-      "text-[14px]",
+      "text-[13.5px]",
       "font-semibold",
     );
-    expect(screen.getByRole("link", { name: "Download" })).toHaveClass("text-[15px]", "font-semibold");
+    expect(screen.getByRole("link", { name: "Download" })).toHaveClass("text-[14px]", "font-semibold");
     expect(screen.getByRole("link", { name: "VI" })).toHaveClass(
-      "bg-[var(--brand-tint-strong)]",
-      "text-[var(--brand-strong)]",
+      "bg-white",
+      "text-black",
     );
     expect(screen.getByRole("link", { name: "EN" })).toHaveClass(
       "text-[var(--text-secondary)]",

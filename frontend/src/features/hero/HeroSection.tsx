@@ -1,9 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import type { LandingContent, Locale } from "@/content";
 import type { Release } from "@/features/downloads";
 
 import { ProductPreview } from "./ProductPreview";
+
+const mockTabs = [
+  { id: "flow", labelEn: "Flow editor", labelVi: "Trình soạn flow" },
+  { id: "ai", labelEn: "AI", labelVi: "AI" },
+  { id: "git", labelEn: "Git", labelVi: "Git" },
+  { id: "schedules", labelEn: "Schedules", labelVi: "Lịch chạy" },
+] as const;
 
 type HeroSectionProps = Readonly<{
   content: LandingContent["hero"];
@@ -12,46 +20,42 @@ type HeroSectionProps = Readonly<{
 }>;
 
 export function HeroSection({ content, locale }: HeroSectionProps) {
+  const [activeMockTab, setActiveMockTab] = useState<string>("flow");
+
   return (
-    <section className="relative border-b border-[var(--color-divider-subtle)] px-5" id="top">
+    <section className="relative px-5" id="top">
       <div className="bg-hero-grid" />
 
-      <div className="relative mx-auto max-w-[1200px]">
+      <div className="relative mx-auto max-w-[1280px]">
         <div className="mx-auto max-w-[760px] pt-16 text-center lg:pt-24">
-          <div className="inline-flex items-center gap-[11px] border border-[var(--color-divider)] bg-[var(--color-surface)] px-4 py-1.5 font-[var(--font-mono)] text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-neutral-400)]">
+          <div className="inline-flex items-center gap-[11px] border border-[var(--color-divider)] bg-[var(--color-surface)] px-4 py-0.5 font-[var(--font-barlow-condensed)] text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[var(--color-neutral-400)]">
             <span className="size-[5px] animate-pulse bg-[var(--color-accent)]" />
             <span>{content.eyebrow}</span>
           </div>
 
           <h1
-            className={`mt-10 font-[var(--font-barlow-condensed)] ${
-              locale === "vi"
-                ? "text-[clamp(42px,6vw,72px)]"
-                : "text-[clamp(42px,6vw,72px)]"
-            } font-semibold leading-[0.94] tracking-[-0.03em] text-[var(--color-text)]`}
+            className="mt-10 font-[var(--font-barlow-condensed)] text-[clamp(42px,6vw,72px)] font-bold leading-[0.94] tracking-[-0.03em] text-[var(--color-text)] text-center w-full lg:w-max lg:relative lg:left-1/2 lg:-translate-x-1/2"
           >
             {locale === "vi" ? (
               <>
-                Automation trình duyệt<br />
-                <span className="lg:whitespace-nowrap">
+                <span className="block">Automation trình duyệt</span>
+                <span className="block lg:whitespace-nowrap">
                   có <span className="text-[var(--color-accent)]">{content.titleAccent}</span> trước khi chạy
                 </span>
-                <br />
-                thật.
+                <span className="block">thật.</span>
               </>
             ) : (
               <>
-                Browser automation<br />
-                <span className="lg:whitespace-nowrap">
+                <span className="block">Browser automation</span>
+                <span className="block lg:whitespace-nowrap">
                   with a <span className="text-[var(--color-accent)]">{content.titleAccent}</span> before it runs for
                 </span>
-                <br />
-                real.
+                <span className="block">real.</span>
               </>
             )}
           </h1>
 
-          <p className="mx-auto mt-8 max-w-[620px] text-[clamp(17px,1.6vw,20px)] font-semibold leading-[1.65] text-[var(--color-neutral-600)] text-pretty">
+          <p className="mx-auto mt-8 max-w-[620px] font-[var(--font-barlow-condensed)] text-[clamp(15px,1.4vw,17px)] font-semibold leading-[1.65] text-[var(--color-neutral-600)] text-pretty">
             {content.description}
           </p>
 
@@ -80,7 +84,7 @@ export function HeroSection({ content, locale }: HeroSectionProps) {
             </a>
           </div>
 
-          <p className="mt-6 font-[var(--font-mono)] text-[11px] font-semibold tracking-[0.05em] text-[var(--color-neutral-400)]">
+          <p className="mt-6 font-[var(--font-barlow-condensed)] text-[13px] font-semibold tracking-[0.03em] text-[var(--color-neutral-400)]">
             {locale === "vi"
               ? "Miễn phí trong beta · Không cần thẻ · Tự cập nhật qua launcher"
               : "Free during beta · No card · Self-updating launcher"}
@@ -88,7 +92,35 @@ export function HeroSection({ content, locale }: HeroSectionProps) {
         </div>
 
         <div className="mt-[46px] pb-12">
-          <ProductPreview content={content} locale={locale} />
+          <div className="mx-auto w-full max-w-[1280px]">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
+              {mockTabs.map((tab) => {
+                const isActive = activeMockTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    className={`hero-mock-tab min-w-[90px] px-6 py-1 text-center font-[var(--font-barlow-condensed)] text-[15px] font-semibold tracking-[0.02em] transition-colors ${
+                      isActive
+                        ? "border border-[#e7e8ea] bg-[#e7e8ea] text-[#0f1114]"
+                        : "border border-[var(--color-divider)] bg-transparent text-[var(--color-neutral-400)] hover:border-[var(--color-neutral-400)] hover:text-white"
+                    }`}
+                    onClick={() => setActiveMockTab(tab.id)}
+                    type="button"
+                  >
+                    {locale === "vi" ? tab.labelVi : tab.labelEn}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="blueprint relative">
+              <i className="corner tl z-10" />
+              <i className="corner tr z-10" />
+              <i className="corner bl z-10" />
+              <i className="corner br z-10" />
+              <ProductPreview content={content} locale={locale} />
+            </div>
+          </div>
         </div>
       </div>
     </section>

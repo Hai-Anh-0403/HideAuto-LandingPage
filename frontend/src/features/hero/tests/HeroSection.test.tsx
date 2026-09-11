@@ -21,7 +21,7 @@ describe("HeroSection", () => {
     expect(heading).toHaveClass(
       "mt-10",
       "text-[clamp(42px,6vw,72px)]",
-      "font-semibold",
+      "font-bold",
       "leading-[0.94]",
     );
     expect(heading.querySelector(".lg\\:whitespace-nowrap")).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe("HeroSection", () => {
     expect(screen.getByText(enContent.hero.description)).toHaveClass(
       "mt-8",
       "max-w-[620px]",
-      "text-[clamp(17px,1.6vw,20px)]",
+      "text-[clamp(15px,1.4vw,17px)]",
       "font-semibold",
     );
     expect(screen.getByRole("link", { name: enContent.hero.ctaPrimary })).toHaveClass(
@@ -50,5 +50,22 @@ describe("HeroSection", () => {
 
     expect(heading).toHaveClass("text-[clamp(42px,6vw,72px)]");
     expect(heading.querySelector(".lg\\:whitespace-nowrap")).toBeInTheDocument();
+  });
+
+  it("renders the 4 mock tab buttons and allows switching active state", () => {
+    render(<HeroSection content={enContent.hero} locale="en" release={null} />);
+
+    const flowBtn = screen.getByRole("button", { name: "Flow editor" });
+    const aiBtn = screen.getByRole("button", { name: "AI" });
+    const gitBtn = screen.getByRole("button", { name: "Git" });
+    const schedBtn = screen.getByRole("button", { name: "Schedules" });
+
+    expect(flowBtn).toBeInTheDocument();
+    expect(aiBtn).toBeInTheDocument();
+    expect(gitBtn).toBeInTheDocument();
+    expect(schedBtn).toBeInTheDocument();
+
+    expect(flowBtn).toHaveClass("bg-[#e7e8ea]", "text-[#0f1114]");
+    expect(aiBtn).toHaveClass("bg-transparent");
   });
 });

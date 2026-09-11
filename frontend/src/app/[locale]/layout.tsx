@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Barlow, Barlow_Condensed } from "next/font/google";
+import { Barlow, Barlow_Condensed, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { isLocale } from "@/content";
@@ -16,6 +16,12 @@ const barlow = Barlow({
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin", "latin-ext", "vietnamese"],
   variable: "--font-barlow-condensed",
+  weight: ["400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext", "vietnamese"],
+  variable: "--font-jetbrains-mono",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -40,8 +46,13 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
-      <body className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html
+      lang={locale}
+      className={`${barlow.variable} ${barlowCondensed.variable} ${jetbrainsMono.variable}`}
+    >
+      <body
+        className={`${barlow.variable} ${barlowCondensed.variable} ${jetbrainsMono.variable}`}
+      >
         {children}
       </body>
     </html>

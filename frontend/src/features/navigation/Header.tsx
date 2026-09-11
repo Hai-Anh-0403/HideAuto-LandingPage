@@ -23,16 +23,16 @@ export function Header({ locale, navigation }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--color-divider-subtle)] bg-[var(--navbg)] backdrop-blur-md">
-      <div className="flex h-16 items-center gap-5 px-4 lg:px-6">
+      <div className="flex h-14 items-center gap-5 px-4 lg:px-6">
         {/* Brand */}
         <Link
           aria-label="HideAuto Home"
-          className="flex items-center gap-2.5 text-[var(--color-text)] transition-colors hover:opacity-90"
+          className="flex items-center gap-2 text-[var(--color-text)] transition-colors hover:opacity-90"
           href={`/${locale}`}
         >
           <svg
             aria-hidden="true"
-            className="size-7 text-[var(--color-text)]"
+            className="size-6 text-[var(--color-text)]"
             fill="none"
             viewBox="0 0 40 40"
           >
@@ -41,7 +41,7 @@ export function Header({ locale, navigation }: HeaderProps) {
             <rect fill="var(--color-accent)" height="22" width="4" x="25" y="9" />
             <rect fill="var(--color-accent)" height="4" width="18" x="11" y="18" />
           </svg>
-          <span className="font-[var(--font-barlow-condensed)] text-[22px] font-semibold tracking-[0.01em] text-[var(--color-text)]">
+          <span className="font-[var(--font-barlow-condensed)] text-[19px] font-semibold tracking-[0.01em] text-[var(--color-text)]">
             HideAuto
           </span>
         </Link>
@@ -49,7 +49,7 @@ export function Header({ locale, navigation }: HeaderProps) {
         {/* Navigation Tabs - Docked right beside the brand logo */}
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-5 text-[14px] font-semibold text-[var(--color-neutral-400)] md:flex"
+          className="hidden items-center gap-5 font-[var(--font-barlow-condensed)] text-[13.5px] font-semibold text-[var(--text-secondary)] md:flex"
         >
           {NAVIGATION_TARGETS.map(({ key, href }) => {
             const label = navigation[key as keyof typeof navigation];
@@ -74,20 +74,20 @@ export function Header({ locale, navigation }: HeaderProps) {
           {/* Language Switcher */}
           <div className="flex border border-[var(--color-divider)]">
             <Link
-              className={`px-2.5 py-1.5 font-[var(--font-mono)] text-[12.5px] font-semibold tracking-[0.06em] uppercase transition-colors ${
+              className={`px-2 py-1 font-[var(--font-mono)] text-[11px] font-semibold tracking-[0.06em] uppercase transition-colors ${
                 locale === "vi"
-                  ? "bg-[var(--brand-tint-strong)] text-[var(--brand-strong)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  ? "bg-white text-black hover:text-black"
+                  : "text-[var(--text-secondary)] hover:text-white"
               }`}
               href="/vi"
             >
               VI
             </Link>
             <Link
-              className={`border-l border-[var(--color-divider)] px-2.5 py-1.5 font-[var(--font-mono)] text-[12.5px] font-semibold tracking-[0.06em] uppercase transition-colors ${
+              className={`border-l border-[var(--color-divider)] px-2 py-1 font-[var(--font-mono)] text-[11px] font-semibold tracking-[0.06em] uppercase transition-colors ${
                 locale === "en"
-                  ? "bg-[var(--brand-tint-strong)] text-[var(--brand-strong)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  ? "bg-white text-black hover:text-black"
+                  : "text-[var(--text-secondary)] hover:text-white"
               }`}
               href="/en"
             >
@@ -98,7 +98,7 @@ export function Header({ locale, navigation }: HeaderProps) {
           {/* CTA Beta Download Button */}
           {navigation.download && (
             <a
-              className="blueprint hidden items-center justify-center border border-[var(--color-accent)] bg-[var(--color-accent)] px-4 py-2 font-[var(--font-barlow-condensed)] text-[15px] font-semibold tracking-[0.02em] text-[var(--on-ac)] transition-opacity hover:opacity-90 sm:inline-flex"
+              className="blueprint hidden items-center justify-center border border-[var(--color-accent)] bg-[var(--color-accent)] px-4 py-2 font-[var(--font-barlow-condensed)] text-[14px] font-semibold tracking-[0.02em] text-[var(--on-ac)] transition-opacity hover:opacity-90 sm:inline-flex"
               href="#download"
             >
               <i className="corner tl" />
@@ -114,7 +114,7 @@ export function Header({ locale, navigation }: HeaderProps) {
             aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label="Open navigation"
-            className="flex size-9 items-center justify-center border border-[var(--color-divider)] text-[var(--color-neutral-400)] hover:text-[var(--color-text)] md:hidden"
+            className="flex size-9 items-center justify-center border border-[var(--color-divider)] text-[var(--text-secondary)] hover:text-[var(--color-text)] md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             type="button"
           >
@@ -133,7 +133,7 @@ export function Header({ locale, navigation }: HeaderProps) {
       {isMenuOpen && (
         <nav
           aria-label="Mobile navigation"
-          className="border-t border-[var(--color-divider)] bg-[var(--color-bg)] px-4 py-4 md:hidden"
+          className="border-t border-[var(--color-divider)] bg-[var(--color-bg)] px-4 py-4 font-[var(--font-barlow-condensed)] md:hidden"
           id="mobile-navigation"
         >
           <div className="flex flex-col gap-3">
@@ -142,7 +142,7 @@ export function Header({ locale, navigation }: HeaderProps) {
               if (!label) return null;
               return (
                 <a
-                  className="py-1.5 text-[15px] font-semibold text-[var(--color-neutral-400)] transition-colors hover:text-[var(--color-text)]"
+                  className="py-1.5 text-[14px] font-semibold text-[var(--text-secondary)] transition-colors hover:text-[var(--color-text)]"
                   href={href}
                   key={key}
                   onClick={() => setIsMenuOpen(false)}
@@ -154,7 +154,7 @@ export function Header({ locale, navigation }: HeaderProps) {
             {navigation.download && (
               <div className="pt-2">
                 <a
-                  className="blueprint flex w-full items-center justify-center border border-[var(--color-accent)] bg-[var(--color-accent)] py-2 font-[var(--font-barlow-condensed)] text-[15px] font-semibold text-[var(--on-ac)]"
+                  className="blueprint flex w-full items-center justify-center border border-[var(--color-accent)] bg-[var(--color-accent)] py-1.5 font-[var(--font-barlow-condensed)] text-[14px] font-semibold text-[var(--on-ac)]"
                   href="#download"
                   onClick={() => setIsMenuOpen(false)}
                 >

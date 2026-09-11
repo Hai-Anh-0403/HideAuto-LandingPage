@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { LandingContent, Locale } from "@/content";
 import { Container } from "@/shared/components/Container";
+import { SectionHeading } from "@/shared/components/SectionHeading";
 import type { Release } from "./release.types";
 import { recordDownloadIntent } from "./services/downloads.service";
 
@@ -44,17 +45,11 @@ export function DownloadSection({ content, locale, release }: DownloadSectionPro
     <section className="bg-blueprint-grid relative border-b border-[var(--color-divider)] py-20 sm:py-28" id="download">
       <Container>
         {/* Header */}
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 border border-[var(--color-divider)] bg-[#14171c] px-3 py-1 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">
-            <span>{content.eyebrow}</span>
-          </div>
-          <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-4xl font-bold uppercase tracking-tight text-white sm:text-6xl">
-            {content.title}
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-[var(--color-neutral-400)] sm:text-lg">
-            {content.description}
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
+        />
 
         {/* Two-Column Grid: Download Cards & Beta Signup */}
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.3fr_1fr]">

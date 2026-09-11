@@ -192,7 +192,9 @@ shared/services/api-client.ts
 - Design-specific business language belongs to its feature, even when the markup looks reusable.
 ## 11. Styling and Resilience
 
-- Map `DESIGN.md` tokens to CSS variables and Tailwind utilities; use Barlow and Barlow Condensed through `next/font`.
+- Map `DESIGN.md` tokens to CSS variables and Tailwind utilities; use `"Barlow Condensed", "Barlow Condensed Fallback", "Barlow", "Barlow Fallback", sans-serif` as primary typography through `next/font`.
+- Blueprint corners / 4-corner effects use `color-mix(in srgb, #e7e8ea 55%, transparent)`.
+- Hero cockpit editor enforces visual tokens: `--cockpit-disconnected-color` (`#a8b1ba`) shared identically across toolbar `DISCONNECTED` status indicator and right inspector Outline step labels.
 - Use mobile-first layouts at `<768px`, `768–1023px`, and `>=1024px`; preserve accessible cockpit/table overflow.
 - Respect reduced motion, visible focus, semantic landmarks, and 44x44px touch targets.
 - Forms show inline feedback; route failures use `app/[locale]/error.tsx` without exposing internals.

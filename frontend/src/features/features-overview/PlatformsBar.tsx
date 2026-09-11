@@ -1,38 +1,35 @@
 import type { LandingContent } from "@/content";
-import { Container } from "@/shared/components/Container";
 
 type PlatformsBarProps = Readonly<{
   platforms: LandingContent["platforms"];
 }>;
 
 export function PlatformsBar({ platforms }: PlatformsBarProps) {
-  return (
-    <section className="border-b border-[var(--color-divider)] bg-[#0d0f12] py-8">
-      <Container>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {platforms.items.map((item) => (
-            <div
-              className="blueprint border border-[var(--color-divider)] bg-[#13171d] p-4 transition-colors hover:border-[var(--color-neutral-400)]"
-              key={item.title}
-            >
-              <i className="corner tl" />
-              <i className="corner tr" />
-              <i className="corner bl" />
-              <i className="corner br" />
+  const drives = platforms.drives ?? [];
+  const label = platforms.drivesLabel ?? "Drives";
 
-              <div className="flex items-center gap-2 text-[var(--color-accent)]">
-                <span className="size-1.5 bg-[var(--color-accent)]" />
-                <span className="font-[var(--font-barlow-condensed)] text-base font-bold text-white">
-                  {item.title}
+  return (
+    <section data-screen-label="Platforms" className="px-4 sm:px-8 pt-8 sm:pt-[46px] pb-0">
+      <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-[26px] border-t border-[var(--color-divider-subtle)] pt-[26px]">
+        <p className="shrink-0 select-none font-[var(--font-mono)] text-[9.5px] uppercase tracking-[0.13em] text-[var(--color-neutral-400)]">
+          {label}
+        </p>
+        <div className="flex flex-wrap items-center gap-[10px]">
+          {drives.map((drive) => (
+            <span
+              key={drive.name}
+              className="inline-flex items-center border border-[var(--color-divider-subtle)] bg-transparent px-[15px] py-[7px] font-[var(--font-barlow-condensed)] text-[16px] font-semibold tracking-[0.03em] text-[#dce1e6] transition-colors hover:border-[var(--color-divider)] hover:text-white"
+            >
+              <span>{drive.name}</span>
+              {drive.tag ? (
+                <span className="ml-1.5 font-[var(--font-mono)] text-[10px] font-normal tracking-normal text-[var(--color-neutral-400)]">
+                  {drive.tag}
                 </span>
-              </div>
-              <p className="mt-2 text-xs leading-relaxed text-[var(--color-neutral-400)]">
-                {item.description}
-              </p>
-            </div>
+              ) : null}
+            </span>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

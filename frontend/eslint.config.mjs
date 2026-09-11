@@ -6,6 +6,8 @@ export default defineConfig([
   globalIgnores([
     ".next/**",
     ".next-build/**",
+    ".next-old/**",
+    ".next-build-old/**",
     "node_modules/**",
     "coverage/**",
   ]),

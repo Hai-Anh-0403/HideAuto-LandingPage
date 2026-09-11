@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { LandingContent } from "@/content";
 import { Container } from "@/shared/components/Container";
+import { SectionHeading } from "@/shared/components/SectionHeading";
 
 type FaqSectionProps = Readonly<{
   content: LandingContent["faq"];
@@ -27,14 +28,10 @@ export function FaqSection({ content }: FaqSectionProps) {
     <section className="border-b border-[var(--color-divider)] py-20 sm:py-28" id="faq">
       <Container>
         {/* Header */}
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 border border-[var(--color-divider)] bg-[#14171c] px-3 py-1 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">
-            <span>{content.eyebrow}</span>
-          </div>
-          <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-4xl font-bold uppercase tracking-tight text-white sm:text-6xl">
-            {content.title}
-          </h2>
-        </div>
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+        />
 
         {/* Accordion List */}
         <div className="mt-12 space-y-3">

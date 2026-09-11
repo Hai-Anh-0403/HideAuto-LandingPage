@@ -9,7 +9,7 @@ export const enContent: LandingContent = {
     compare: "Compare",
     pricing: "Pricing",
     faq: "FAQ",
-    download: "Get Beta",
+    download: "Get the Beta",
   },
   hero: {
     eyebrow: "BETA · WINDOWS · LOCAL RUNTIME, LOCAL DATA",
@@ -98,6 +98,15 @@ export const enContent: LandingContent = {
     },
   },
   platforms: {
+    drivesLabel: "Drives",
+    drives: [
+      { name: "Hidemium" },
+      { name: "GPM-Login" },
+      { name: "AdsPower" },
+      { name: "Chromium", tag: "built-in" },
+      { name: "Firefox", tag: "built-in" },
+      { name: "CDP", tag: "external" },
+    ],
     title: "Technology Stack Engineered for Scale",
     items: [
       {
@@ -123,45 +132,75 @@ export const enContent: LandingContent = {
     ],
   },
   overview: {
-    eyebrow: "OPERATING LOOP",
+    eyebrow: "The operating loop",
     heading: "Build · review · run at scale · commit.",
     subhead:
-      "A closed 5-step engineering loop ensuring browser workflows scale across hundreds of accounts without unexpected mid-run failures.",
+      "The four things you do every day, in one app that runs locally. No browser tabs, no loose scripts, no point where data leaves your machine.",
     steps: [
       {
         number: "01",
-        tag: "INFINITE CANVAS",
+        tag: "Canvas & nodes",
         title: "Eight node groups, one infinite canvas",
         description:
-          "Visual drag-and-drop authoring. Every node accepts parameters, JavaScript expressions, branching logic, loop constructs, retry policies, and granular error handlers.",
+          "Drag a node from the palette and wire it through two output ports — success and error. Branch with IF / IF-ELSE / Element exists, repeat with Loop, halt with Stop. Variables travel through everything in double-brace syntax.",
+        bullets: [
+          "Selectors by id / css / xpath, through shadow DOM and iframes",
+          "Human-like mouse paths and find-by-image where selectors cannot reach",
+          "Undo/redo, copy node clusters, alignment, an outline in run order",
+          "Need code? Run JS, HTTP request and Run command nodes sit right in the flow",
+        ],
       },
       {
         number: "02",
-        tag: "CRITIC GATE",
-        title: "Critic reads the flow before touching production",
+        tag: "Critic & gate",
+        title: "Critic reads the flow before the flow touches production",
         description:
-          "Automated gate audits flow across 4 core risk vectors: selector resilience, anti-detect hygiene, data integrity, and request pacing. Fails build if score drops below 85.",
+          "Seven static rules run on the exact graph the runner will execute — no model calls, so the same flow always scores the same. Findings pin onto the node and into the Problems table in the bottom dock.",
+        bullets: [
+          "Score 0–100, threshold 85 by default, adjustable",
+          "A single error-level finding blocks, whatever the score",
+          "Two rules carry an Apply auto-fix; the rest need your judgement",
+          "A waiver needs a reason and is recorded — a human decides, not an agent",
+        ],
       },
       {
         number: "03",
-        tag: "PARALLEL SCALE",
+        tag: "Profiles, schedule & scale",
         title: "Hundreds of profiles, running on schedule",
         description:
-          "High-throughput multi-threaded coordination. Assign dedicated proxies per profile, schedule automated cron triggers, and smoothly recover sessions after network glitches.",
+          "Every profile is an isolated browser identity: its own fingerprint (UA, WebGL, canvas, fonts, media devices), its own proxy, its own storage. Pick the profiles, set maxConcurrency, let the engine handle the rest.",
+        bullets: [
+          "A Profiles screen: filter, search, paginate, bulk open/close",
+          "Cron schedules, batches with progress, a worklog per profile",
+          "Proxy check before the run — IP, country, latency",
+          "Power cut, app closed: schedules recover on next launch",
+        ],
       },
       {
         number: "04",
-        tag: "GIT VERSIONING",
+        tag: "History & git",
         title: "Workflows have a history, not just a latest version",
         description:
-          "All modifications are preserved as internal git commits. Inspect visual diffs between graph revisions before merging, with instant rollback on regression.",
+          "Every workflow is a file on disk, committed with real git. Read the diff as a graph — which nodes were added, changed, removed — or as text. Configure an origin and you get backup, pull, and a conflict-resolution screen.",
+        bullets: [
+          "A badge on the nav rail counts uncommitted workflows",
+          "A History tab in the bottom dock — read commits while you edit",
+          "Someone edits the file outside the app: a dialog asks before overwriting",
+          "In-session undo/redo is one thing; a commit is another",
+        ],
       },
       {
         number: "05",
-        tag: "STANDALONE .EXE",
+        tag: "Data, files & packaging",
         title: "Data in, data out, then its own app",
         description:
-          "Ingest inputs from CSV/Excel/Database sources and emit cleansed structured outputs. Package workflows into standalone .exe binaries for 1-click execution.",
+          "Read and write Excel and Google Sheets, read files, write txt/csv/json, send and read mail, pull 2FA codes, call any HTTP API mid-flow. Then package the whole workflow into a standalone .exe — custom icon, encrypted, with a sha256 to verify.",
+        bullets: [
+          "Global variables get their own screen — edit once, every flow follows",
+          "Per-step JSONL logs, tailed live while the run happens",
+          "The Critic gate is a pipeline step in the build — it can block",
+          "A self-updating launcher — no manual re-download each build",
+        ],
       },
     ],
     nodeGroupsHeading: "8 Standardized Node Groups",
@@ -210,10 +249,59 @@ export const enContent: LandingContent = {
     ],
   },
   critic: {
-    eyebrow: "WHY A GATE MATTERS",
-    title: "Automation bugs do not show up in your test run. They show up on profile 217.",
+    eyebrow: "Why a gate",
+    title: "Automation bugs do not show up in your test run.\nThey show up on profile 217.",
     description:
-      "Critic is the first static analyzer built exclusively for browser automation. It identifies brittle selectors, missing retries, fingerprint anomalies, and unsafe data flows before launching batches.",
+      "A positional selector, an empty error port, a delay hand-set to zero — a single test run shows none of it. Three hundred scheduled profiles at 2am show all of it, and by then the data is already wrong.",
+    pillars: [
+      {
+        id: "resilience",
+        label: "resilience",
+        description: "Running once does not mean running twice.",
+      },
+      {
+        id: "anti-detect",
+        label: "anti-detect",
+        description: "Machine traces: cadence, ordering, dwell time.",
+      },
+      {
+        id: "data-safety",
+        label: "data-safety",
+        description: "Losing data, or reporting success when it actually broke.",
+      },
+      {
+        id: "cost",
+        label: "cost",
+        description: "Money and time: redundant calls, writes, runs.",
+      },
+    ],
+    scoreRules: {
+      title: "How the score works",
+      maxLabel: "max",
+      maxValue: "100",
+      rules: [
+        {
+          level: "error",
+          label: "error",
+          deduction: "−15",
+        },
+        {
+          level: "warn",
+          label: "warn",
+          deduction: "−5",
+        },
+        {
+          level: "hint",
+          label: "hint",
+          deduction: "−1",
+        },
+      ],
+      thresholdLabel: "threshold",
+      thresholdValue: "85",
+      explanationPrefix: "The score says where the flow stands. Shipping is blocked by the ",
+      explanationHighlight: "count of errors",
+      explanationSuffix: ", not by the score — so a real bug never slips through because the rest is too clean.",
+    },
     scoreThresholdText: "Minimum score required to approve build:",
     scoreThresholdValue: 85,
     categories: [

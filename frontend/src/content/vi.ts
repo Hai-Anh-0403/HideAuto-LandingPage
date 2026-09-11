@@ -98,6 +98,15 @@ export const viContent: LandingContent = {
     },
   },
   platforms: {
+    drivesLabel: "Điều khiển được",
+    drives: [
+      { name: "Hidemium" },
+      { name: "GPM-Login" },
+      { name: "AdsPower" },
+      { name: "Chromium", tag: "built-in" },
+      { name: "Firefox", tag: "built-in" },
+      { name: "CDP", tag: "external" },
+    ],
     title: "Nền tảng công nghệ sẵn sàng cho quy mô lớn",
     items: [
       {
@@ -123,45 +132,75 @@ export const viContent: LandingContent = {
     ],
   },
   overview: {
-    eyebrow: "VÒNG LẶP VẬN HÀNH",
+    eyebrow: "Vòng lặp vận hành",
     heading: "Dựng · soát · chạy hàng loạt · commit.",
     subhead:
-      "Quy trình 5 bước khép kín giúp các tác vụ tự động hóa chạy ổn định trên hàng trăm tài khoản mà không sợ bất ngờ gãy đổ ở giữa chừng.",
+      "Bốn việc bạn làm mỗi ngày, trong một app chạy cục bộ. Không tab trình duyệt, không script rời, không chỗ nào dữ liệu rời khỏi máy.",
     steps: [
       {
         number: "01",
-        tag: "CANVAS VÔ HẠN",
+        tag: "Canvas & node",
         title: "Tám nhóm node, một canvas vô hạn",
         description:
-          "Dựng flow bằng kéo thả trực quan. Mọi node đều nhận biến, hỗ trợ biểu thức JavaScript, điều kiện rẽ nhánh, vòng lặp, chính sách retry và error-handling cục bộ.",
+          "Kéo node từ palette, nối bằng hai cổng ra — success và error. Rẽ nhánh với IF / IF-ELSE / Element exists, lặp với Loop, dừng với Stop. Biến dùng chung xuyên suốt bằng cú pháp hai ngoặc nhọn.",
+        bullets: [
+          "Selector theo id / css / xpath, xuyên shadow DOM và iframe",
+          "Chuột human-like và find-by-image cho chỗ selector không tới được",
+          "Undo/redo, copy cụm node, canh hàng, dàn bài theo thứ tự chạy",
+          "Cần code? Node Run JS, HTTP request và Run command nằm ngay trong flow",
+        ],
       },
       {
         number: "02",
-        tag: "CỬA KIỂM CRITIC",
+        tag: "Critic & gate",
         title: "Critic đọc flow trước khi flow chạm production",
         description:
-          "Cửa kiểm tự động chấm điểm flow theo 4 bộ tiêu chí an toàn: Độ bền selector, tính ẩn danh anti-detect, an toàn dữ liệu và tần suất request. Nếu dưới 85 điểm, flow bị chặn build.",
+          "Bảy rule tĩnh chạy trên chính graph mà runner sẽ thực thi — không gọi model, nên cùng một flow luôn cho cùng một kết quả. Finding gắn thẳng lên node và lên bảng Problems ở dock đáy.",
+        bullets: [
+          "Điểm 0–100, ngưỡng mặc định 85, chỉnh được",
+          "Một finding mức error là chặn, bất kể điểm còn lại",
+          "Hai rule có nút Apply sửa tự động; còn lại cần bạn quyết",
+          "Miễn trừ phải kèm lý do và được ghi lại — người quyết, không phải agent",
+        ],
       },
       {
         number: "03",
-        tag: "SCALE HÀNG LOẠT",
+        tag: "Profile, lịch & quy mô",
         title: "Hàng trăm profile, chạy theo lịch",
         description:
-          "Điều phối chạy song song đa luồng nhẹ nhàng. Gán proxy riêng cho từng profile, lập lịch cron tự động, khôi phục session mượt mà khi gặp sự cố gián đoạn mạng.",
+          "Mỗi profile là một danh tính trình duyệt độc lập: fingerprint riêng (UA, WebGL, canvas, font, media device), proxy riêng, bộ nhớ riêng. Chọn profile, đặt maxConcurrency, để engine lo phần còn lại.",
+        bullets: [
+          "Màn Profiles: lọc, tìm, phân trang, mở/đóng hàng loạt",
+          "Lịch cron, batch có tiến độ, worklog từng profile",
+          "Kiểm proxy trước khi chạy — IP, quốc gia, độ trễ",
+          "Mất điện, đóng app: lịch được khôi phục khi mở lại",
+        ],
       },
       {
         number: "04",
-        tag: "GIT VERSIONING",
+        tag: "Lịch sử & git",
         title: "Workflow có lịch sử, không chỉ có bản mới nhất",
         description:
-          "Mọi chỉnh sửa được lưu lại dưới dạng commit nội bộ. Hỗ trợ xem visual diff trực quan giữa 2 phiên bản node graph, rollback tức thì nếu có phiên bản gây lỗi.",
+          "Mỗi workflow là một file trên đĩa, commit bằng git thật. Xem diff dưới dạng graph (node nào thêm, sửa, xoá) hoặc dạng text. Cấu hình origin thì backup và pull được, có màn giải quyết xung đột.",
+        bullets: [
+          "Badge số workflow chưa commit ngay trên thanh điều hướng",
+          "Tab Lịch sử ở dock đáy — xem commit ngay trong lúc sửa",
+          "Ai đó sửa file ngoài app: hộp thoại hỏi trước khi ghi đè",
+          "Undo/redo trong phiên là một chuyện; commit là chuyện khác",
+        ],
       },
       {
         number: "05",
-        tag: "STANDALONE .EXE",
+        tag: "Dữ liệu, file & đóng gói",
         title: "Dữ liệu vào, dữ liệu ra, rồi thành app riêng",
         description:
-          "Nhận dữ liệu từ CSV/Excel/Database và trích xuất dữ liệu sạch. Đóng gói workflow thành file .exe độc lập cho đồng đội hoặc khách hàng chỉ việc bấm 1-click để chạy.",
+          "Đọc/ghi Excel và Google Sheets, đọc file, ghi txt/csv/json, gửi và đọc mail, lấy mã 2FA, gọi HTTP API giữa flow. Xong rồi đóng gói cả workflow thành một .exe độc lập, đổi icon, mã hoá, có sha256 để đối chiếu.",
+        bullets: [
+          "Biến toàn cục có màn riêng — sửa một chỗ, mọi flow theo",
+          "Log JSONL từng bước, tail được ngay trong lúc chạy",
+          "Cửa Critic là một bước trong pipeline build — chặn được",
+          "Launcher tự cập nhật, không phải tải lại tay từng bản",
+        ],
       },
     ],
     nodeGroupsHeading: "8 Nhóm Node Toàn Diện",
@@ -210,10 +249,59 @@ export const viContent: LandingContent = {
     ],
   },
   critic: {
-    eyebrow: "VÌ SAO CẦN CỬA KIỂM",
-    title: "Lỗi automation không hiện lúc bạn test. Nó hiện ở profile thứ 217.",
+    eyebrow: "Vì sao cần cửa kiểm",
+    title: "Lỗi automation không hiện lúc bạn test.\nNó hiện ở profile thứ 217.",
     description:
-      "Critic là static analyzer chuyên biệt đầu tiên cho browser automation. Nó tìm ra những selector dễ vỡ, thiếu retry, rò rỉ fingerprint và luồng dữ liệu nguy hiểm trước khi bạn cho chạy hàng loạt.",
+      "Một selector bám vị trí, một cổng error để trống, một ô delay bị đặt về 0 — chạy thử một lượt thì không thấy gì. Chạy 300 profile theo lịch lúc 2 giờ sáng thì thấy hết, và lúc đó dữ liệu đã sai rồi.",
+    pillars: [
+      {
+        id: "resilience",
+        label: "resilience",
+        description: "Chạy được một lần không có nghĩa là chạy được lần thứ hai.",
+      },
+      {
+        id: "anti-detect",
+        label: "anti-detect",
+        description: "Dấu vết máy móc: nhịp truy cập, thứ tự, thời gian dừng.",
+      },
+      {
+        id: "data-safety",
+        label: "data-safety",
+        description: "Mất dữ liệu, hoặc báo thành công khi thật ra đã hỏng.",
+      },
+      {
+        id: "cost",
+        label: "cost",
+        description: "Tiền và thời gian: gọi thừa, ghi thừa, chạy thừa.",
+      },
+    ],
+    scoreRules: {
+      title: "Cách tính điểm",
+      maxLabel: "max",
+      maxValue: "100",
+      rules: [
+        {
+          level: "error",
+          label: "error",
+          deduction: "−15",
+        },
+        {
+          level: "warn",
+          label: "warn",
+          deduction: "−5",
+        },
+        {
+          level: "hint",
+          label: "hint",
+          deduction: "−1",
+        },
+      ],
+      thresholdLabel: "threshold",
+      thresholdValue: "85",
+      explanationPrefix: "Điểm nói flow đang ở đâu. Chặn ship là do ",
+      explanationHighlight: "đếm lỗi error",
+      explanationSuffix: ", không do điểm — nên một lỗi thật không lọt chỉ vì phần còn lại quá sạch.",
+    },
     scoreThresholdText: "Ngưỡng tối thiểu để duyệt ship flow:",
     scoreThresholdValue: 85,
     categories: [

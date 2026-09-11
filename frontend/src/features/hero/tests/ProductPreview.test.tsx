@@ -9,11 +9,15 @@ describe("ProductPreview", () => {
     render(<ProductPreview content={viContent.hero} locale="vi" />);
 
     expect(screen.getByLabelText("Trình soạn flow HideAuto")).toBeInTheDocument();
-    expect(screen.getByText("Open & Connect")).toBeInTheDocument();
-    expect(screen.getByText("Outline")).toBeInTheDocument();
-    expect(screen.getAllByText("Variables")).toHaveLength(2);
-    expect(screen.getByText("profile_uuid")).toBeInTheDocument();
+    expect(screen.getAllByText("Open & Connect").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("Outline")).toHaveClass("is-active");
+    expect(screen.getByText("Variables")).toBeInTheDocument();
+    expect(screen.getAllByText("Start").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("Stop")).toBeInTheDocument();
     expect(screen.getByText("add log")).toBeInTheDocument();
+
+    // Default dock tab is LOG
+    expect(screen.getByRole("button", { name: "LOG" })).toHaveClass("active");
 
     expect(screen.getByLabelText("Interactive read-only Flow Editor canvas")).toBeInTheDocument();
   });

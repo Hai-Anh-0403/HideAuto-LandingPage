@@ -92,13 +92,20 @@ features/<feature>/
 - Keep Server Components free of browser APIs and event handlers.
 - Add `'use client'` only at the lowest interactive boundary.
 - Use semantic elements: `header`, `nav`, `main`, `section`, `table`, `button`, and `footer`.
-- Use `next/image`, `next/font`, and `next/link` where appropriate.
-- Load Barlow and Barlow Condensed through `next/font`; do not request fonts from client-side JavaScript.
+- Load Barlow Condensed, Barlow, and JetBrains Mono through `next/font`; primary typography stack is `"Barlow Condensed", "Barlow Condensed Fallback", "Barlow", "Barlow Fallback", sans-serif`. Do not request fonts from client-side JavaScript.
 
 ## 6. Design Implementation Rules
 
 - Map the exact colors, radii, shadows, and spacing in `DESIGN.md` to CSS variables and Tailwind theme tokens.
 - Preserve the technical cockpit style: cool-gray background, fine grid, 1px borders, compact labels, and restrained blue accents.
+- Blueprint corners / 4-corner effects for buttons and sections must use `color-mix(in srgb, #e7e8ea 55%, transparent)`.
+- Hero cockpit simulation panel:
+  - Default open tabs: `LOG` for bottom dock; right inspector cố định hiển thị `OUTLINE` (với thanh active `#7ba2ca` 2px sát đáy viền, nhãn `Variables` hiển thị tĩnh không kích hoạt).
+  - Text color for Outline step items must exactly match the `DISCONNECTED` status indicator color (`#a8b1ba` / `--cockpit-disconnected-color`), with step numbers in `#6d7075`.
+- Section Headings:
+  - Mọi section trên landing page (`FeaturesOverview`, `CriticSection`, `ComparisonSection`, `PricingSection`, `FaqSection`, `DownloadSection`) đều bắt buộc dùng component dùng chung `<SectionHeading />` từ `@/shared/components/SectionHeading`.
+  - Kích thước tiêu đề H2 được chuẩn hóa đồng nhất: `font-[var(--font-barlow-condensed)] text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-white leading-[1.04]`.
+  - Eyebrow chuẩn hóa: badge mono `[var(--font-mono)] text-[11px] text-[var(--color-accent)]` đặt trong khung viền nền `#14171c`.
 - Do not replace the design with gradients, glassmorphism, pill-heavy UI, or oversized rounded cards.
 - Build sections in this order: header, hero, cockpit, operating loop, nodes, Critic, comparison, pricing, FAQ, closing CTA, footer.
 - Use stable IDs: `top`, `features`, `critic`, `compare`, `pricing`, `faq`, and `download`.

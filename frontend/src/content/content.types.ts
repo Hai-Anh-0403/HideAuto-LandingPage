@@ -57,8 +57,13 @@ export type LandingContent = Readonly<{
     }>;
   }>;
   platforms: Readonly<{
-    title: string;
-    items: readonly Readonly<{
+    drivesLabel: string;
+    drives: readonly Readonly<{
+      name: string;
+      tag?: string;
+    }>[];
+    title?: string;
+    items?: readonly Readonly<{
       icon: string;
       title: string;
       description: string;
@@ -73,6 +78,7 @@ export type LandingContent = Readonly<{
       title: string;
       description: string;
       tag: string;
+      bullets?: readonly string[];
     }>[];
     nodeGroupsHeading: string;
     nodeGroupsSubhead: string;
@@ -86,15 +92,35 @@ export type LandingContent = Readonly<{
     eyebrow: string;
     title: string;
     description: string;
-    scoreThresholdText: string;
-    scoreThresholdValue: number;
-    categories: readonly Readonly<{
+    pillars: readonly Readonly<{
+      id: string;
+      label: string;
+      description: string;
+    }>[];
+    scoreRules: Readonly<{
+      title: string;
+      maxLabel: string;
+      maxValue: string;
+      rules: readonly Readonly<{
+        level: "error" | "warn" | "hint";
+        label: string;
+        deduction: string;
+      }>[];
+      thresholdLabel: string;
+      thresholdValue: string;
+      explanationPrefix: string;
+      explanationHighlight: string;
+      explanationSuffix: string;
+    }>;
+    scoreThresholdText?: string;
+    scoreThresholdValue?: number;
+    categories?: readonly Readonly<{
       id: string;
       name: string;
       description: string;
       riskExample: string;
     }>[];
-    liveDemo: Readonly<{
+    liveDemo?: Readonly<{
       title: string;
       status: string;
       targetProfile: string;

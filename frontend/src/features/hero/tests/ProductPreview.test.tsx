@@ -13,7 +13,7 @@ describe("ProductPreview", () => {
     expect(screen.getByText("Outline")).toBeInTheDocument();
     expect(screen.getAllByText("Variables")).toHaveLength(2);
     expect(screen.getByText("profile_uuid")).toBeInTheDocument();
-    expect(screen.getByText("No workflows yet.")).toBeInTheDocument();
+    expect(screen.getByText("add log")).toBeInTheDocument();
 
     expect(screen.getByLabelText("Interactive read-only Flow Editor canvas")).toBeInTheDocument();
   });

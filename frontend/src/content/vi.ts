@@ -105,7 +105,6 @@ export const viContent: LandingContent = {
       { name: "AdsPower" },
       { name: "Chromium", tag: "built-in" },
       { name: "Firefox", tag: "built-in" },
-      { name: "CDP", tag: "external" },
     ],
     title: "Nền tảng công nghệ sẵn sàng cho quy mô lớn",
     items: [

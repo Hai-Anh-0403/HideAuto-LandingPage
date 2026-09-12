@@ -6,7 +6,7 @@ import { viContent } from "@/content/vi";
 import { PlatformsBar } from "../PlatformsBar";
 
 describe("PlatformsBar", () => {
-  it("renders English drives bar with all 6 platform badges", () => {
+  it("renders English drives bar with all 5 platform badges", () => {
     render(<PlatformsBar platforms={enContent.platforms} />);
 
     expect(screen.getByText("Drives")).toBeInTheDocument();
@@ -15,9 +15,8 @@ describe("PlatformsBar", () => {
     expect(screen.getByText("AdsPower")).toBeInTheDocument();
     expect(screen.getByText("Chromium")).toBeInTheDocument();
     expect(screen.getByText("Firefox")).toBeInTheDocument();
-    expect(screen.getByText("CDP")).toBeInTheDocument();
+    expect(screen.queryByText("CDP")).not.toBeInTheDocument();
     expect(screen.getAllByText("built-in")).toHaveLength(2);
-    expect(screen.getByText("external")).toBeInTheDocument();
   });
 
   it("renders Vietnamese drives bar with localized label", () => {

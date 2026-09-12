@@ -105,7 +105,6 @@ export const enContent: LandingContent = {
       { name: "AdsPower" },
       { name: "Chromium", tag: "built-in" },
       { name: "Firefox", tag: "built-in" },
-      { name: "CDP", tag: "external" },
     ],
     title: "Technology Stack Engineered for Scale",
     items: [

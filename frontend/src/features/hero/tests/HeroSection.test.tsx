@@ -56,8 +56,8 @@ describe("HeroSection", () => {
     render(<HeroSection content={enContent.hero} locale="en" release={null} />);
 
     const flowBtn = screen.getByRole("button", { name: "Flow editor" });
-    const aiBtn = screen.getByRole("button", { name: "AI" });
-    const gitBtn = screen.getByRole("button", { name: "Git" });
+    const aiBtn = screen.getByRole("button", { name: "AI chat" });
+    const gitBtn = screen.getByRole("button", { name: "Version control" });
     const schedBtn = screen.getByRole("button", { name: "Schedules" });
 
     expect(flowBtn).toBeInTheDocument();
@@ -67,6 +67,13 @@ describe("HeroSection", () => {
 
     expect(flowBtn).toHaveClass("bg-[#e7e8ea]", "text-[#0f1114]");
     expect(aiBtn).toHaveClass("bg-transparent");
+
+    // Switching to Version control displays its own desktop diff preview.
+    fireEvent.click(gitBtn);
+    expect(gitBtn).toHaveClass("bg-[#e7e8ea]", "text-[#0f1114]");
+    expect(screen.getByLabelText("HideAuto Version Control")).toBeInTheDocument();
+    expect(screen.getByText("Changes")).toBeInTheDocument();
+    expect(screen.getByText("Old (HEAD)")).toBeInTheDocument();
 
     // Switching to Schedules displays SchedulePreview
     fireEvent.click(schedBtn);

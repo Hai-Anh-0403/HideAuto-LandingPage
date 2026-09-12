@@ -63,18 +63,20 @@ const initialSchedules: ScheduleItem[] = [
     target: "1 profile · 3×",
     next: "in 1h 33m",
     history: [false, false, false, false, false, false, false],
-    enabled: true,
+    enabled: false,
     timelinePercent: 18.8,
   },
   {
     id: "req-facebook-run",
     name: "req-facebook",
     category: "req-facebook",
-    when: "Run now",
+    when: "Every day at 20:00",
+    dateSubtext: "2026-09-12",
     target: "1 profile · 3×",
-    next: "—",
+    next: "in 8h 33m",
     history: [false, false, false, false, false, false, false],
     enabled: false,
+    timelinePercent: 37.5,
   },
 ];
 
@@ -96,77 +98,92 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
   const [viewMode, setViewMode] = useState<"list" | "calendar">("list");
   const [inspectorTab, setInspectorTab] = useState<"overview" | "history">("overview");
   const [activeRunId, setActiveRunId] = useState<string | null>(null);
-  const [cursorPhase, setCursorPhase] = useState<"approach" | "hover" | "click" | "idle">("idle");
+  const [cursorPhase, setCursorPhase] = useState<"approach" | "hover" | "click" | "move-down" | "idle">("idle");
+  const [cursorTargetRow, setCursorTargetRow] = useState<number | null>(null);
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number }>({ x: 190, y: 85 });
 
   useEffect(() => {
     let animId: number | null = null;
     let timeouts: number[] = [];
 
+    const enableSchedule = (rowIndex: number, onComplete: () => void) => {
+      setCursorTargetRow(rowIndex);
+      setCursorPhase("approach");
+      const startTime = performance.now();
+      const duration = 850;
+      const startX = 190;
+      const startY = 85;
+
+      const animate = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const arc = Math.sin(progress * Math.PI) * 10;
+        setCursorPos({ x: startX * (1 - ease) - arc, y: startY * (1 - ease) });
+
+        if (progress < 1) {
+          animId = requestAnimationFrame(animate);
+          return;
+        }
+
+        setCursorPos({ x: 0, y: 0 });
+        setCursorPhase("hover");
+        timeouts.push(window.setTimeout(() => {
+          setCursorPhase("click");
+          timeouts.push(window.setTimeout(() => {
+            setSchedules((prev) => prev.map((item, index) => index === rowIndex ? { ...item, enabled: true } : item));
+            setCursorPhase("hover");
+            timeouts.push(window.setTimeout(onComplete, 550));
+          }, 120));
+        }, 180));
+      };
+
+      animId = requestAnimationFrame(animate);
+    };
+
+    const moveToSecondSchedule = (onComplete: () => void) => {
+      setCursorTargetRow(0);
+      setCursorPhase("move-down");
+      const startTime = performance.now();
+      const duration = 620;
+      const rowOffset = 74;
+
+      const animate = (now: number) => {
+        const progress = Math.min(1, (now - startTime) / duration);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCursorPos({ x: 0, y: rowOffset * ease });
+
+        if (progress < 1) {
+          animId = requestAnimationFrame(animate);
+          return;
+        }
+
+        setCursorTargetRow(1);
+        setCursorPos({ x: 0, y: 0 });
+        setCursorPhase("hover");
+        timeouts.push(window.setTimeout(() => {
+          setCursorPhase("click");
+          timeouts.push(window.setTimeout(() => {
+            setSchedules((prev) => prev.map((item, index) => index === 1 ? { ...item, enabled: true } : item));
+            setCursorPhase("idle");
+            setCursorTargetRow(null);
+            timeouts.push(window.setTimeout(onComplete, 900));
+          }, 120));
+        }, 180));
+      };
+
+      animId = requestAnimationFrame(animate);
+    };
+
     const startDemoCycle = () => {
-      // Reset Schedule 2 (Row 2: req-facebook-run) to disabled before cursor approaches
-      setSchedules((prev) =>
-        prev.map((item) =>
-          item.id === "req-facebook-run"
-            ? { ...item, enabled: false }
-            : item
-        )
-      );
+      setSchedules((prev) => prev.map((item) => ({ ...item, enabled: false })));
       setCursorPhase("idle");
+      setCursorTargetRow(null);
       setCursorPos({ x: 190, y: 85 });
 
-      timeouts.push(
-        window.setTimeout(() => {
-          setCursorPhase("approach");
-          const startTime = performance.now();
-          const duration = 850;
-          const startX = 190;
-          const startY = 85;
-
-          const animate = (now: number) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(1, elapsed / duration);
-            const ease = 1 - Math.pow(1 - progress, 3);
-            const arc = Math.sin(progress * Math.PI) * 10;
-            const x = startX * (1 - ease) - arc;
-            const y = startY * (1 - ease);
-
-            setCursorPos({ x, y });
-
-            if (progress < 1) {
-              animId = requestAnimationFrame(animate);
-            } else {
-              setCursorPos({ x: 0, y: 0 });
-              setCursorPhase("hover");
-
-              timeouts.push(
-                window.setTimeout(() => {
-                  setCursorPhase("click");
-
-                  timeouts.push(
-                    window.setTimeout(() => {
-                      // Turn on Schedule 2 (Row 2: req-facebook-run)
-                      setSchedules((prev) =>
-                        prev.map((item) =>
-                          item.id === "req-facebook-run"
-                            ? { ...item, enabled: true }
-                            : item
-                        )
-                      );
-                      setCursorPhase("idle");
-
-                      // Schedule next demo loop cycle after 9 seconds
-                      timeouts.push(window.setTimeout(startDemoCycle, 9000));
-                    }, 120)
-                  );
-                }, 180)
-              );
-            }
-          };
-
-          animId = requestAnimationFrame(animate);
-        }, 800)
-      );
+      timeouts.push(window.setTimeout(() => {
+        enableSchedule(0, () => moveToSecondSchedule(() => timeouts.push(window.setTimeout(startDemoCycle, 9000))));
+      }, 800));
     };
 
     startDemoCycle();
@@ -193,7 +210,7 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
         return {
           ...item,
           enabled: nextEnabled,
-          next: nextEnabled ? (item.id === "req-facebook-run" ? "—" : "in 1h 42m") : "Paused",
+          next: nextEnabled ? (item.id === "req-facebook-run" ? "in 8h 33m" : "in 1h 42m") : "Paused",
         };
       })
     );
@@ -359,7 +376,7 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
             </div>
 
             <span className="timeline-slots">
-              1 run queued · 1 profile-slot
+              {activeCount} {activeCount === 1 ? "run" : "runs"} queued · {activeCount} profile-{activeCount === 1 ? "slot" : "slots"}
             </span>
           </section>
 
@@ -450,7 +467,7 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
                           <button
                             aria-checked={item.enabled}
                             aria-label={`Toggle schedule for ${item.name}`}
-                            className={`cockpit-switch ${item.enabled ? "is-on" : "is-off"} ${rowIndex === 1 && cursorPhase === "hover" ? "is-hovered" : ""} ${rowIndex === 1 && cursorPhase === "click" ? "is-pressed" : ""}`}
+                            className={`cockpit-switch ${item.enabled ? "is-on" : "is-off"} ${rowIndex === cursorTargetRow && cursorPhase === "hover" ? "is-hovered" : ""} ${rowIndex === cursorTargetRow && cursorPhase === "click" ? "is-pressed" : ""}`}
                             onClick={(e) => {
                               e.stopPropagation();
                               toggleSchedule(item.id);
@@ -460,7 +477,7 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
                           >
                             <span className="switch-thumb" />
                           </button>
-                          {rowIndex === 1 && (cursorPhase === "approach" || cursorPhase === "hover" || cursorPhase === "click") && (
+                          {rowIndex === cursorTargetRow && (cursorPhase === "approach" || cursorPhase === "hover" || cursorPhase === "click" || cursorPhase === "move-down") && (
                             <span
                               aria-hidden="true"
                               className={`demo-run-cursor ${cursorPhase}`}
@@ -547,7 +564,7 @@ export function SchedulePreview({ locale = "vi", onSwitchTab }: SchedulePreviewP
               <button className="inspector-btn" type="button">
                 Edit schedule
               </button>
-              <button className="inspector-btn" type="button">
+              <button className="inspector-btn inspector-btn--delete" type="button">
                 Delete
               </button>
             </div>

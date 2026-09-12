@@ -6,11 +6,12 @@ import type { Release } from "@/features/downloads";
 
 import { ProductPreview } from "./ProductPreview";
 import { SchedulePreview } from "./SchedulePreview";
+import { VersionControlPreview } from "./VersionControlPreview";
 
 const mockTabs = [
   { id: "flow", labelEn: "Flow editor", labelVi: "Trình soạn flow" },
-  { id: "ai", labelEn: "AI", labelVi: "AI" },
-  { id: "git", labelEn: "Git", labelVi: "Git" },
+  { id: "ai", labelEn: "AI chat", labelVi: "AI chat" },
+  { id: "git", labelEn: "Version control", labelVi: "Version control" },
   { id: "schedules", labelEn: "Schedules", labelVi: "Lịch chạy" },
 ] as const;
 
@@ -121,11 +122,14 @@ export function HeroSection({ content, locale }: HeroSectionProps) {
               <i className="corner br z-10" />
               {activeMockTab === "schedules" ? (
                 <SchedulePreview locale={locale} onSwitchTab={setActiveMockTab} />
+              ) : activeMockTab === "git" ? (
+                <VersionControlPreview locale={locale} />
               ) : (
                 <ProductPreview
                   content={content}
                   locale={locale}
                   onSwitchTab={setActiveMockTab}
+                  aiDemo={activeMockTab === "ai"}
                 />
               )}
             </div>

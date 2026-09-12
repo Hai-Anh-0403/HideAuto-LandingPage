@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Bell, Braces, CalendarSync, ChevronDown, ChevronLeft, Download, File, FileDown, Fingerprint, FolderPlus, GitBranch, Hand, History, Home, MoreHorizontal, MousePointer2, Play, Plus, Redo2, RotateCcw, Save, Search, Settings, ShieldCheck, Square, SquareLibrary, Undo2, User, Workflow, X } from "lucide-react";
+import { Bell, Braces, CalendarSync, ChevronDown, ChevronLeft, Crosshair, Download, File, FileDown, Fingerprint, FolderPlus, GitBranch, Hand, History, Home, Minus, Moon, MousePointer2, Play, Plus, Redo2, RotateCcw, Save, Search, Settings, Settings2, ShieldCheck, Sparkles, Square, SquareLibrary, Undo2, User, Workflow, X } from "lucide-react";
 import type { LandingContent, Locale } from "@/content";
+import { AiWorkflowCanvas } from "./AiWorkflowCanvas";
 import { FlowEditorCanvas } from "./FlowEditorCanvas";
 
 type ProductPreviewProps = Readonly<{
   content: LandingContent["hero"];
   locale?: Locale;
   onSwitchTab?: (tab: string) => void;
+  aiDemo?: boolean;
 }>;
 const railItems = [Home, Workflow, GitBranch, SquareLibrary, CalendarSync, History, Fingerprint, Braces];
 export const sampleWorkflows = [
@@ -52,14 +54,48 @@ const outlineSteps = [
   { num: "10", name: "Stop" },
 ] as const;
 
-export function ProductPreview({ content, locale = "vi", onSwitchTab }: ProductPreviewProps) {
+export function ProductPreview({ content, locale = "vi", onSwitchTab, aiDemo = false }: ProductPreviewProps) {
   const [dock, setDock] = useState<"PROBLEMS" | "LOG" | "HISTORY">("LOG");
   const [runPhase, setRunPhase] = useState<"approach" | "hover" | "click" | "running" | "idle">("idle");
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number }>({ x: 260, y: 185 });
   const [flowStep, setFlowStep] = useState(0);
   const [activeWorkflow, setActiveWorkflow] = useState<string>("req-facebook");
+  const [aiPhase, setAiPhase] = useState<"entry" | "hover" | "click" | "input-hover" | "send-hover" | "send-click" | "done">("entry");
+  const [aiStage, setAiStage] = useState<0 | 1 | 2>(0);
+  const [aiBuildStep, setAiBuildStep] = useState(0);
+  const [aiDemoCycle, setAiDemoCycle] = useState(0);
 
   useEffect(() => {
+    if (!aiDemo) return;
+    setAiPhase("entry");
+    setAiStage(0);
+    setAiBuildStep(0);
+    const timeouts = [
+      window.setTimeout(() => setAiPhase("hover"), 650),
+      window.setTimeout(() => { setAiPhase("click"); setAiStage(1); }, 1700),
+      window.setTimeout(() => setAiPhase("input-hover"), 2600),
+      window.setTimeout(() => setAiPhase("send-hover"), 3800),
+      window.setTimeout(() => { setAiPhase("send-click"); setAiStage(2); }, 4650),
+      window.setTimeout(() => setAiPhase("done"), 4900),
+      window.setTimeout(() => setAiDemoCycle((cycle) => cycle + 1), 11800),
+    ];
+    return () => timeouts.forEach(clearTimeout);
+  }, [aiDemo, aiDemoCycle]);
+
+  useEffect(() => {
+    if (!aiDemo || aiStage !== 2) return;
+    setAiBuildStep(0);
+    const timeouts = [
+      window.setTimeout(() => setAiBuildStep(1), 650),
+      window.setTimeout(() => setAiBuildStep(2), 2050),
+      window.setTimeout(() => setAiBuildStep(3), 3450),
+      window.setTimeout(() => setAiBuildStep(4), 4850),
+    ];
+    return () => timeouts.forEach(clearTimeout);
+  }, [aiDemo, aiStage]);
+
+  useEffect(() => {
+    if (aiDemo) return;
     let animId: number | null = null;
     let timeouts: number[] = [];
 
@@ -123,22 +159,22 @@ export function ProductPreview({ content, locale = "vi", onSwitchTab }: ProductP
       if (animId) cancelAnimationFrame(animId);
       timeouts.forEach(clearTimeout);
     };
-  }, []);
+  }, [aiDemo]);
   const isRunning = runPhase === "running";
   const isHovered = runPhase === "hover" || runPhase === "click";
   const isPressed = runPhase === "click";
   const visibleLogs = isRunning ? sampleLogs.filter((entry) => entry.step <= flowStep) : [];
   const editorName = locale === "vi" ? "Trình soạn flow HideAuto" : "HideAuto Flow Editor";
 
-  return <div className="actual-flow-preview" aria-label={editorName} title={content.cockpit.activeFlow}>
-    <header className="actual-flow-preview__title"><span className="actual-flow-preview__mark">H</span><span>HideAuto</span><strong>{activeWorkflow}</strong><span className="actual-flow-preview__window-actions"><Bell /><Download /><MoreHorizontal /><span>-</span><Square /><X /></span></header>
+  return <div className={`actual-flow-preview ${aiDemo ? "ai-chat-preview" : ""} ${aiStage > 0 ? "is-ai-open" : ""}`} aria-label={editorName} title={content.cockpit.activeFlow}>
+    <header className="actual-flow-preview__title"><span className="actual-flow-preview__mark">H</span><span>HideAuto</span><strong>{activeWorkflow}</strong><span className="actual-flow-preview__window-actions"><Bell /><Download /><Moon />{aiDemo ? <button aria-label="Open AI chat" className="ai-chat-preview__trigger" onClick={() => { setAiPhase("done"); setAiStage(2); }} type="button"><Sparkles /></button> : <Sparkles />}<Minus /><Square /><X /></span></header>
     <div className="actual-flow-preview__tabs"><div className="actual-flow-preview__tab"><GitBranch aria-hidden size={14} /><b>{activeWorkflow}</b><Square aria-hidden fill="currentColor" size={7} /><X size={14} /></div></div>
     <div className="actual-flow-preview__layout">
       <aside className="actual-flow-preview__rail" aria-hidden="true">{railItems.map((Icon, index) => <span className={index === 1 ? "active" : ""} key={index} onClick={() => { if (index === 4) onSwitchTab?.("schedules"); }} style={{ cursor: index === 4 ? "pointer" : "default" }} title={index === 4 ? "Schedules" : undefined}><span className="rail-icon-wrapper"><Icon />{index === 2 && <em className="rail-badge">{sampleWorkflows.length}</em>}</span></span>)}<i /><span><User /></span><span><Settings /></span></aside>
       <aside className="actual-flow-preview__library"><div className="library-tools"><button aria-label="Back" type="button"><ChevronLeft /></button><span><Search /><FolderPlus /><FileDown /><Plus /><RotateCcw /></span></div><ul className="workflow-file-list">{sampleWorkflows.map((name) => { const isActive = name === activeWorkflow; return <li className={isActive ? "is-active" : ""} key={name} onClick={() => setActiveWorkflow(name)} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setActiveWorkflow(name); }}><File aria-hidden /><span className="workflow-name">{name}</span><span aria-hidden="true" className="workflow-active-dot" /></li>; })}</ul></aside>
       <main className="actual-flow-preview__center">
         <div className="actual-flow-preview__tools"><span className="tool-group"><MousePointer2 className="tool-select" /><Hand className="tool-pan" /></span><i /><span className="tool-group"><span className="tool-run-wrapper"><button className={`tool-run ${isRunning ? "is-running" : ""} ${isHovered ? "is-hovered" : ""} ${isPressed ? "is-pressed" : ""}`} onClick={() => setRunPhase(isRunning ? "idle" : "running")} type="button">{isRunning ? <Square aria-hidden="true" className="tool-run__stop" fill="currentColor" size={10} /> : <Play aria-hidden className="tool-run__play" strokeWidth={2} />}{isRunning ? "Stop" : "Run"}{isPressed && <span aria-hidden className="demo-click-ripple" />}</button>{(runPhase === "approach" || runPhase === "hover" || runPhase === "click") && <span aria-hidden="true" className={`demo-run-cursor ${runPhase}`} style={{ transform: `translate(${cursorPos.x}px, ${cursorPos.y}px)${isPressed ? " scale(0.82) rotate(-3deg)" : ""}`, transition: isPressed ? "transform 0.15s ease-out" : "none" }}><MousePointer2 className="demo-pointer-icon" fill="#ffffff" size={20} stroke="#0b0d10" strokeWidth={1.3} /></span>}</span><button className="tool-save" type="button"><Save size={15} />Save</button></span><i /><span className="tool-group"><Undo2 className="tool-icon" /><Redo2 className="tool-icon" /></span><i /><span className="tool-group"><button className="critic critic--disconnected" type="button"><ShieldCheck size={15} />Run critic review</button></span><span className="tool-critic-gap" aria-hidden="true" /><b className="actual-flow-preview__status-disconnected"><Square fill="currentColor" size={8} /> DISCONNECTED</b></div>
-        <FlowEditorCanvas isRunning={isRunning} onStepChange={setFlowStep} />
+        {aiDemo ? <AiWorkflowCanvas buildStep={aiBuildStep} /> : <FlowEditorCanvas isRunning={isRunning} onStepChange={setFlowStep} />}
         <section className="actual-flow-preview__dock">
           <div>
             <button className={`dock-tab ${dock === "PROBLEMS" ? "active" : ""}`} onClick={() => setDock("PROBLEMS")} type="button">PROBLEMS</button>
@@ -165,5 +201,6 @@ export function ProductPreview({ content, locale = "vi", onSwitchTab }: ProductP
         </ul>
       </aside>
     </div>
+    {aiDemo && <><span aria-hidden="true" className={`ai-chat-preview__cursor ${aiPhase}`}><MousePointer2 fill="#f5f7f9" size={20} stroke="#101318" strokeWidth={1.35} />{(aiPhase === "click" || aiPhase === "send-click") && <i />}</span>{aiStage > 0 && <aside className="ai-chat-preview__panel" aria-label="AI Chat"><header><b>Phiên mới</b><span><History size={14} /><Plus size={14} /><Bell size={14} /><Crosshair size={14} /><Settings2 size={14} /><X size={14} /></span></header><div className="ai-chat-preview__messages">{aiStage === 2 && <><p className="ai-chat-preview__prompt">Tạo cho tôi luồng tự động req-facebook</p><div className="ai-chat-preview__answer"><b>Đang tạo req-facebook</b><p>AI đang thêm từng bước vào canvas… {aiBuildStep}/4</p></div></>}</div><div className={`ai-chat-preview__composer ${aiStage === 1 ? "is-typing" : ""}`}><span>{aiStage === 1 ? "Tạo cho tôi luồng tự động req-facebook" : "Nhắn AI về workflow này..."}</span><button aria-label="Send message" type="button">↑</button></div></aside>}</>}
   </div>;
 }

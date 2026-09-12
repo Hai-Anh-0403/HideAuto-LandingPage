@@ -129,10 +129,12 @@ export type LandingContent = Readonly<{
     }>;
   }>;
   stats: Readonly<{
+    eyebrow: string;
+    placeholderTag: string;
     items: readonly Readonly<{
       value: string;
       label: string;
-      sub: string;
+      sub?: string;
     }>[];
   }>;
   comparison: Readonly<{
@@ -152,16 +154,19 @@ export type LandingContent = Readonly<{
     eyebrow: string;
     title: string;
     description: string;
+    subNote?: string;
     planName: string;
     planPrice: string;
+    priceUnit?: string;
     planSub: string;
     features: readonly string[];
     cta: string;
-    guarantee: string;
+    guarantee?: string;
   }>;
   faq: Readonly<{
     eyebrow: string;
     title: string;
+    description?: string;
     items: readonly Readonly<{
       question: string;
       answer: string;
@@ -180,6 +185,8 @@ export type LandingContent = Readonly<{
     sha256: string;
     ctaDownload: string;
     ctaPortable: string;
+    ctaReview?: string;
+    subNote?: string;
     betaSignup: Readonly<{
       title: string;
       description: string;
@@ -194,5 +201,8 @@ export type LandingContent = Readonly<{
     localeLabel: string;
     copyright: string;
     disclaimer: string;
+    productLabel?: string;
+    resourcesLabel?: string;
+    note?: string;
   }>;
 }>;

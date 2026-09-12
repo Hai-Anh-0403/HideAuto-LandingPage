@@ -141,9 +141,15 @@ Grid chỉ là texture nền. Không để độ tương phản cao hơn nội d
 
 | Vai trò | Font | Fallback | Sử dụng |
 |---|---|---|---|
-| **Sans** | `Barlow` | `system-ui, -apple-system, sans-serif` | Body, navigation, description |
-| **Heading** | `Barlow Condensed` | `Barlow, system-ui, sans-serif` | Hero, section title, button mạnh |
-| **Mono** | `JetBrains Mono` | `ui-monospace, SFMono-Regular, Menlo, monospace` | Eyebrow, metric label, technical data |
+| **Chính (Primary / Sans / Heading)** | `Barlow Condensed` | `"Barlow Condensed Fallback", "Barlow", "Barlow Fallback", sans-serif` | Toàn bộ dự án web: Header, Hero, tiêu đề H1-H6, nội dung body, mô tả, nút bấm, navigation |
+| **Mono** | `JetBrains Mono` | `ui-monospace, "SF Mono", Menlo, monospace` | Eyebrow kỹ thuật, metric label, technical data, Critic scanner |
+
+Stack chuẩn dự án:
+```css
+--font-sans: var(--font-barlow-condensed), "Barlow Condensed", "Barlow Condensed Fallback", var(--font-barlow), "Barlow", "Barlow Fallback", sans-serif;
+--font-heading: var(--font-barlow-condensed), "Barlow Condensed", "Barlow Condensed Fallback", var(--font-barlow), "Barlow", "Barlow Fallback", sans-serif;
+--font-mono: var(--font-jetbrains-mono), ui-monospace, "JetBrains Mono", "SF Mono", Menlo, monospace;
+```
 
 ### 3.2 Font Weight
 
@@ -159,8 +165,8 @@ Grid chỉ là texture nền. Không để độ tương phản cao hơn nội d
 ```css
 --text-display:        clamp(48px, 7vw, 88px);
 --text-hero:           clamp(42px, 6vw, 72px);
---text-h1:             clamp(36px, 5vw, 56px);
---text-h2:             clamp(30px, 4vw, 44px);
+--text-h1:             clamp(42px, 6vw, 72px);
+--text-h2:             clamp(30px, 3.8vw, 48px); /* text-3xl sm:text-4xl lg:text-5xl chuẩn thống nhất cho tất cả các section */
 --text-h3:             clamp(22px, 2.5vw, 28px);
 --text-card-title:     18px;
 --text-lead:           clamp(17px, 1.6vw, 20px);
@@ -290,7 +296,7 @@ Quy tắc:
 
 ### 5.2 Blueprint Corners
 
-Khung quan trọng như hero visual, pricing CTA, demo window hoặc featured card có thể dùng dấu registration:
+Khung quan trọng như hero visual, pricing CTA, demo window hoặc featured card có thể dùng dấu registration (4 góc):
 
 ```text
 ┌─            ─┐
@@ -303,7 +309,7 @@ Khung quan trọng như hero visual, pricing CTA, demo window hoặc featured ca
 Dấu góc:
 
 - Kích thước: `8–14px`.
-- Border: `brand-primary` hoặc `border-emphasis`.
+- Màu chuẩn cho hiệu ứng ở 4 góc của các nút và section: `color-mix(in srgb, #e7e8ea 55%, transparent)` (hoặc `color-mix(in srgb, var(--steel-line, #e7e8ea) 55%, transparent)`).
 - Không sử dụng cho mọi card.
 - Tối đa `1–3` khung nổi bật trên một viewport.
 
@@ -444,11 +450,35 @@ border: 1px solid var(--border-default);
 
 Có thể thêm:
 
-- Blueprint corners.
+- Blueprint corners (màu `color-mix(in srgb, #e7e8ea 55%, transparent)`).
 - Grid nền.
 - Mono labels.
 - Floating metric nhỏ.
 - Scanline cực nhẹ.
+
+#### Cockpit Flow Editor (Section mô phỏng Hero)
+
+Section mô phỏng quy trình tự động hóa trình duyệt (Flow Editor Cockpit) tuân thủ bộ quy chuẩn:
+
+- **Bố cục & Chiều cao**:
+  - Toolbar trên cùng thu gọn: Title bar `28px`, Tabs bar `28px`, Action tools bar `32px`.
+  - Vùng làm việc chính (Flow canvas) mở rộng tối đa vùng hiển thị luồng chạy (`grid-template-rows: 32px 1fr 180px`).
+  - Bottom dock cao `180px`, mặc định mở ở tab **`LOG`**.
+  - Right inspector panel: Mặc định hiển thị danh sách **`OUTLINE`** (10 bước tự động hóa). Nhãn `Variables` chỉ cần có mặt tĩnh (`cursor: default`), không cần tương tác/bấm vào.
+- **Màu sắc & Typography của Outline và Status**:
+  - Trạng thái kết nối: `DISCONNECTED` mang màu `#a8b1ba` (`--cockpit-disconnected-color`).
+  - Danh sách Outline:
+    - Tên bước (`.outline-step-name` / `.outline-step-item`): **Bắt buộc đồng bộ chính xác với màu chữ `DISCONNECTED`** (`#a8b1ba`), không dùng màu xanh cyan.
+    - Số thứ tự bước (`.outline-step-num`): `#6d7075` (mono kỹ thuật, độ sáng vừa phải).
+    - Trạng thái hover: Tên bước sáng lên `#ffffff`, số thứ tự sáng lên `#9da7b0`.
+    - Tab Outline active: Thanh chỉ báo active `#7ba2ca` dày 2px nằm áp sát hoàn toàn mép đáy (`bottom: -1px`), không có khe hở đẩy lên; chữ màu trắng `#ffffff` (`font-weight: 600`). Nhãn `Variables` mang màu xám `#6d7885`.
+- **Hiệu ứng chuột di chuyển mô phỏng (Simulated Mouse Cursor)**:
+  - **Điểm xuất phát thực tế**: Bắt đầu từ vùng canvas làm việc (`x: 175px, y: 135px`) di chuyển lên nút Run, thay vì chỉ nhích một đoạn ngắn từ mép trái nút bấm.
+  - **Quỹ đạo đường cong tự nhiên (`human-mouse-approach`)**: Đường cong mượt mà dài 1.9s với gia tốc tự nhiên (tăng tốc ở giữa, giảm tốc nhẹ nhàng khi tiếp cận mục tiêu - Fitts's law).
+  - **Con trỏ thực tế (OS Pointer)**: Con trỏ mũi tên trắng đặc ruột (`fill="#ffffff"`) có viền tối tương phản và drop-shadow, giống con trỏ hệ điều hành thật.
+  - **Phản hồi nút bấm & Cảm giác nhấn (Tactile Click)**:
+    - Khi chuột vừa chạm tới: Nút Run chuyển sang trạng thái hover sáng viền và đổi nền (`.is-hovered`).
+    - Khi nhấn: Nút thụt nhẹ (`.is-pressed` scale 0.96), con trỏ nghiêng nhẹ và co lại, kích hoạt vòng sóng xung kích lan tỏa (`.demo-click-ripple`), sau đó con trỏ mờ dần và luồng chạy bắt đầu.
 
 ### 7.4 Hero Background
 
@@ -662,6 +692,49 @@ Mỗi card nên có:
 - Optional "Learn more".
 
 Không nhồi quá nhiều icon decoration.
+
+### 11.4 The Operating Loop (Vòng lặp vận hành - Section `#features`)
+
+Section Vòng lặp vận hành (Operating Loop) thể hiện 5 pha khép kín trong quy trình tự động hóa:
+
+- **Section Header**:
+  - Eyebrow: `font-mono text-[10px] uppercase tracking-[0.13em] text-[var(--color-accent)]` (`The operating loop` / `Vòng lặp vận hành`).
+  - Heading: Sentence case `Build · review · run at scale · commit.` (không viết hoa toàn bộ, dùng dấu chấm giữa các từ `·`, font `Barlow Condensed`, bold, `text-4xl sm:text-5xl lg:text-[54px]`).
+  - Subhead: Max width `780px`, `17px`, `line-height: 1.62`, màu `var(--color-neutral-400)`.
+- **Thanh 5 Tab ngang**:
+  - 5 nút tab: `Canvas & nodes` | `Critic & gate` | `Profiles, schedule & scale` | `History & git` | `Data, files & packaging`.
+  - Font: `Barlow Condensed 15.5px`, `font-weight: 600`, `letter-spacing: .02em`.
+  - Tab active: Nền xanh accent `bg-[var(--color-accent)]`, chữ tối `#0f1114`.
+  - Tab inactive: Viền `border-[var(--color-divider)]`, chữ sáng `#e7e8ea`, hover đổi màu border.
+- **Bố cục nội dung 2 cột**:
+  - Cột trái (`minmax(0, 430px)`): Tiêu đề H3 (`32px`), đoạn mô tả (`15.5px`), và danh sách 4 gạch đầu dòng đánh số `01`, `02`, `03`, `04` với số màu accent mono.
+  - Cột phải (`minmax(0, 1fr)`): Khung blueprint có 4 dấu góc (`corner tl/tr/bl/br`):
+    - **Tab 0 (Build)**: Bảng node 8 nhóm (Browser, Tab, Element, Keyboard, Mouse, Data, Debug, Control) dạng lưới 4x2 với điểm màu định danh từng nhóm.
+    - **Tab 1 (Critic)**: Bảng 7 rule tĩnh kiểm duyệt flow (invalid-node, no-start-node, unreachable-node, positional-selector, error-port-unwired, zero-dwell, write-inside-loop) với mức độ lỗi (error, warn, hint).
+    - **Tab 2 (Scale)**: Bảng thông số fingerprint độc lập từng profile (UA, WebGL, Canvas, Fonts, Media devices, Proxy, Mouse, Dwell).
+    - **Tab 3 (Git)**: Card so sánh graph diff (+ / ~ / −) và trạng thái git commit/conflict.
+    - **Tab 4 (Data/Package)**: Pipeline đóng gói 5 bước và mã băm SHA256 của file binary `.exe` độc lập.
+
+### 11.5 Why a Gate / Critic (Section `#critic`)
+
+Section giải thích lý do vì sao cần cổng kiểm duyệt Critic tĩnh trước khi đưa flow vào chạy hàng loạt:
+
+- **Khung Blueprint**:
+  - Box blueprint bao trùm với viền hairline và 4 dấu góc kỹ thuật (`corner tl/tr/bl/br`).
+  - Nền tối kỹ thuật `#0d1015/90`, padding `p-8 sm:p-12 lg:p-14`.
+- **Cột trái**:
+  - Eyebrow: `font-mono text-[10.5px] uppercase tracking-[0.13em] text-[var(--color-accent)]` (`WHY A GATE` / `VÌ SAO CẦN CỬA KIỂM`).
+  - Heading H2: `Automation bugs do not show up in your test run.\nThey show up on profile 217.` (`text-3xl sm:text-4xl lg:text-[46px] font-bold text-white leading-[1.05] tracking-[-0.02em]`).
+  - Paragraph: Mô tả nguyên do lỗi tiềm ẩn (`16px`, `line-height: 1.65`, `color: var(--color-neutral-400)`).
+  - Lưới 4 trụ cột (`2x2`):
+    - `RESILIENCE`: `Running once does not mean running twice.`
+    - `ANTI-DETECT`: `Machine traces: cadence, ordering, dwell time.`
+    - `DATA-SAFETY`: `Losing data, or reporting success when it actually broke.`
+    - `COST`: `Money and time: redundant calls, writes, runs.`
+- **Cột phải (Card: HOW THE SCORE WORKS)**:
+  - Khung viền kỹ thuật `border-[var(--color-divider)]` với tiêu đề `HOW THE SCORE WORKS` (VI: `CÁCH TÍNH ĐIỂM`).
+  - Bảng thang điểm 5 dòng font mono (`max: 100`, `error: −15`, `warn: −5`, `hint: −1`, `threshold: 85`).
+  - Chú thích cốt lõi: Chặn ship là do **đếm lỗi error** (`count of errors`), không do điểm số — đảm bảo flow an toàn tuyệt đối.
 
 ---
 
@@ -1545,3 +1618,56 @@ svg {
 ---
 
 Không cần tạo mọi section nếu nội dung dự án không yêu cầu. Ưu tiên **ít section nhưng rõ giá trị** hơn một landing page dài với nhiều block lặp lại.
+
+---
+
+## 35. Drives Bar (Browser & Runtime Compatibility Strip)
+
+Section ngay bên dưới Hero simulation cockpit (`PlatformsBar`):
+
+- **Vị trí**: Nằm giữa Hero Cockpit Editor và Section Features Overview (`THE OPERATING LOOP`).
+- **Container**: `max-w-[1280px] mx-auto`, có đường viền trên `border-t border-[var(--color-divider-subtle)]` (`rgba(231,232,234,0.11)`), padding `pt-[26px]`.
+- **Label bên trái**: Mono font `font-[var(--font-mono)]`, `text-[9.5px]`, `tracking-[0.13em]`, `uppercase`, màu `var(--color-neutral-400)` (`#9a9ca0`). (VI: `Điều khiển được`, EN: `Drives`).
+- **Danh sách badge**: Hàng ngang `flex items-center gap-[10px] flex-wrap`.
+- **Badge item**:
+  - Border: `1px solid var(--color-divider-subtle)` (`border-[rgba(231,232,234,0.11)]`).
+  - Background: `transparent` (hoặc bề mặt tối liền mạch).
+  - Padding: `7px 15px` (`py-[7px] px-[15px]`).
+  - Text chính: `font-[var(--font-barlow-condensed)]`, `font-weight: 600`, `text-[16px]`, `tracking-[0.03em]`, màu `#dce1e6`.
+  - Tag kèm theo (`built-in`, `external`): `font-[var(--font-mono)]`, `text-[10px]`, màu `var(--color-neutral-400)` (`#9a9ca0`).
+  - Danh sách chuẩn: `Hidemium`, `GPM-Login`, `AdsPower`, `Chromium (built-in)`, `Firefox (built-in)`, `CDP (external)`.
+  - Hover: `hover:border-[var(--color-divider)] hover:text-white transition-colors`.
+
+---
+
+## 36. Quy chuẩn Tiêu đề Section Thống nhất (Unified Section Heading)
+
+Để toàn bộ các section trên landing page đồng nhất 100% về kích thước, tỷ lệ font chữ, badge eyebrow và nhịp khoảng cách:
+
+- **Component chuẩn**: Dùng `<SectionHeading />` từ `@/shared/components/SectionHeading`.
+- **Cấu trúc**:
+  1. **Eyebrow Badge**:
+     - Container: `inline-flex items-center gap-2 border border-[var(--color-divider)] bg-[#14171c] px-3 py-1`
+     - Font: `font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]`
+     - Text: Uppercase mono (ví dụ: `OPERATING LOOP`, `WHY A GATE MATTERS`, `COMPARE`, `PRICING`, `FAQ`, `DOWNLOAD`).
+  2. **Tiêu đề H2 (`title`)**:
+     - Font: `font-[var(--font-barlow-condensed)]`
+     - Kích thước chuẩn: `text-3xl sm:text-4xl lg:text-5xl` (`clamp(30px, 3.8vw, 48px)`)
+     - Cân nặng: `font-bold` (700)
+     - Kiểu chữ: `uppercase`
+     - Khoảng cách ký tự & dòng: `tracking-tight leading-[1.04]`
+     - Màu sắc: `text-white`
+     - Khoảng cách trên: `mt-4`
+  3. **Mô tả (`description`)**:
+     - Font: `text-base sm:text-lg leading-relaxed text-[var(--color-neutral-400)]`
+     - Khoảng cách trên: `mt-4`
+  4. **Giới hạn chiều rộng**: `max-w-3xl`
+- **Áp dụng bắt buộc**:
+  - `FeaturesOverview`
+  - `CriticSection`
+  - `ComparisonSection`
+  - `PricingSection`
+  - `FaqSection`
+  - `DownloadSection`
+
+

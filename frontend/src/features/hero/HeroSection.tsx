@@ -5,6 +5,7 @@ import type { LandingContent, Locale } from "@/content";
 import type { Release } from "@/features/downloads";
 
 import { ProductPreview } from "./ProductPreview";
+import { SchedulePreview } from "./SchedulePreview";
 
 const mockTabs = [
   { id: "flow", labelEn: "Flow editor", labelVi: "Trình soạn flow" },
@@ -118,7 +119,15 @@ export function HeroSection({ content, locale }: HeroSectionProps) {
               <i className="corner tr z-10" />
               <i className="corner bl z-10" />
               <i className="corner br z-10" />
-              <ProductPreview content={content} locale={locale} />
+              {activeMockTab === "schedules" ? (
+                <SchedulePreview locale={locale} onSwitchTab={setActiveMockTab} />
+              ) : (
+                <ProductPreview
+                  content={content}
+                  locale={locale}
+                  onSwitchTab={setActiveMockTab}
+                />
+              )}
             </div>
           </div>
         </div>

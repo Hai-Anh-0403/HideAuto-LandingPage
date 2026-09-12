@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import type { LandingContent } from "@/content";
-import { Container } from "@/shared/components/Container";
-import { SectionHeading } from "@/shared/components/SectionHeading";
 
 type FaqSectionProps = Readonly<{
   content: LandingContent["faq"];
@@ -25,62 +23,66 @@ export function FaqSection({ content }: FaqSectionProps) {
   }
 
   return (
-    <section className="border-b border-[var(--color-divider)] py-20 sm:py-28" id="faq">
-      <Container>
-        {/* Header */}
-        <SectionHeading
-          eyebrow={content.eyebrow}
-          title={content.title}
-        />
+    <section id="faq" className="px-4 pt-20 pb-0 md:px-[34px] lg:pt-24">
+      <div className="mx-auto max-w-[1280px] grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:gap-[60px]">
+        {/* Left Column: Heading & Description */}
+        <div>
+          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.13em] text-[var(--color-accent)]">
+            {content.eyebrow}
+          </p>
 
-        {/* Accordion List */}
-        <div className="mt-12 space-y-3">
+          <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-4xl font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl lg:text-[48px]">
+            {content.title}
+          </h2>
+
+          {content.description ? (
+            <p className="mt-4 text-[15.5px] leading-[1.62] text-[var(--color-neutral-400)] text-pretty">
+              {content.description}
+            </p>
+          ) : null}
+        </div>
+
+        {/* Right Column: Sleek Hairline-Separated FAQ List */}
+        <div className="border-b border-[var(--color-divider-subtle)]">
           {content.items.map((item, idx) => {
             const isOpen = openIndices.has(idx);
+
             return (
               <div
-                className="blueprint border border-[var(--color-divider)] bg-[#13171d] transition-colors hover:border-[var(--color-neutral-400)]"
                 key={item.question}
+                className="border-t border-[var(--color-divider-subtle)]"
               >
-                <i className="corner tl" />
-                <i className="corner tr" />
-                <i className="corner bl" />
-                <i className="corner br" />
-
                 <button
-                  aria-controls={`faq-content-${idx}`}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors"
-                  id={`faq-header-${idx}`}
-                  onClick={() => toggleItem(idx)}
                   type="button"
+                  onClick={() => toggleItem(idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                  className="flex w-full items-center justify-between gap-5 py-5 text-left bg-transparent border-0 cursor-pointer font-[var(--font-barlow-condensed)] text-[22px] font-semibold text-white transition-colors hover:text-[var(--color-accent)]"
                 >
-                  <span className="font-[var(--font-barlow-condensed)] text-lg font-bold text-white sm:text-xl">
-                    {item.question}
-                  </span>
+                  <span>{item.question}</span>
                   <span
                     aria-hidden="true"
-                    className="flex size-7 shrink-0 items-center justify-center border border-[var(--color-divider)] font-[var(--font-mono)] text-sm text-[var(--color-accent)]"
+                    className={`shrink-0 font-[var(--font-mono)] text-[18px] text-[var(--color-accent)] transition-transform duration-150 inline-block ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
                   >
-                    {isOpen ? "−" : "+"}
+                    +
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div
-                    aria-labelledby={`faq-header-${idx}`}
-                    className="border-t border-[var(--color-divider)] p-5 pt-3 text-sm leading-relaxed text-[var(--color-neutral-400)] sm:text-base"
-                    id={`faq-content-${idx}`}
-                    role="region"
+                {isOpen ? (
+                  <p
+                    id={`faq-answer-${idx}`}
+                    className="pb-[22px] max-w-[760px] text-[15.5px] leading-[1.65] text-[var(--color-neutral-400)] text-pretty"
                   >
                     {item.answer}
-                  </div>
-                )}
+                  </p>
+                ) : null}
               </div>
             );
           })}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { enContent } from "@/content/en";
@@ -67,5 +67,11 @@ describe("HeroSection", () => {
 
     expect(flowBtn).toHaveClass("bg-[#e7e8ea]", "text-[#0f1114]");
     expect(aiBtn).toHaveClass("bg-transparent");
+
+    // Switching to Schedules displays SchedulePreview
+    fireEvent.click(schedBtn);
+    expect(schedBtn).toHaveClass("bg-[#e7e8ea]", "text-[#0f1114]");
+    expect(screen.getByLabelText("HideAuto Schedules Cockpit")).toBeInTheDocument();
+    expect(screen.getByText("NEXT 24 H")).toBeInTheDocument();
   });
 });

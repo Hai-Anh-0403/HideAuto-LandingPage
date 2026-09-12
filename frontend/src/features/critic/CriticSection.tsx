@@ -9,7 +9,7 @@ export function CriticSection({ content }: CriticSectionProps) {
   const { eyebrow, title, description, pillars, scoreRules } = content;
 
   return (
-    <section className="border-b border-[var(--color-divider)] py-20 sm:py-24" id="critic">
+    <section className="py-20 sm:py-24" id="critic">
       <Container>
         {/* Blueprint Box with Corner Marks matching design */}
         <div className="blueprint relative border border-[var(--color-divider)] bg-[#0d1015]/90 p-8 sm:p-12 lg:p-14">
